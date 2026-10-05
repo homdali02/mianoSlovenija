@@ -1,0 +1,1951 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>北義大利 & 斯洛維尼亞 14 天跨國自駕深度遊 ｜ 互動景點導覽與地圖指南</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+    }
+    
+    /* Elegant Alpine & Mediterranean Atmospheric Pattern */
+    .bg-alps-pattern {
+      background-color: #0b1329;
+      background-image: 
+        radial-gradient(rgba(56, 189, 248, 0.18) 1.5px, transparent 1.5px), 
+        radial-gradient(rgba(245, 158, 11, 0.12) 1.5px, transparent 1.5px);
+      background-size: 26px 26px;
+      background-position: 0 0, 13px 13px;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 35%, #059669 70%, #d97706 100%);
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.35); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(56, 189, 248, 0.6); }
+
+    /* Device Simulator Framing */
+    #device-wrapper {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    /* 1. Desktop Mode (100% Widescreen) */
+    .frame-desktop {
+      width: 100% !important;
+      max-width: 1260px !important;
+      border-radius: 0px;
+      box-shadow: none;
+      border: none;
+    }
+
+    /* 2. Mobile Portrait (iPhone 390 x 844 px) */
+    .frame-mobile-portrait {
+      width: 390px !important;
+      max-width: 94vw !important;
+      min-height: 844px;
+      border-radius: 46px;
+      box-shadow: 0 25px 65px -15px rgba(15, 23, 42, 0.5), 0 0 0 12px #0f172a, 0 0 0 14px #334155;
+      margin-top: 18px;
+      margin-bottom: 36px;
+    }
+
+    /* 3. Tablet 16:9 Landscape Mode (1024 x 576 px Standard) */
+    .frame-tablet-16-9 {
+      width: 1024px !important;
+      max-width: 96vw !important;
+      min-height: 620px;
+      border-radius: 32px;
+      box-shadow: 0 25px 65px -15px rgba(15, 23, 42, 0.5), 0 0 0 12px #1e293b, 0 0 0 14px #0284c7;
+      margin-top: 18px;
+      margin-bottom: 36px;
+    }
+
+    .nav-tab-active {
+      border-color: #0284c7 !important;
+      color: #0369a1 !important;
+      background-color: #f0f9ff !important;
+      font-weight: 800 !important;
+      transform: translateY(-1px);
+    }
+
+    /* Modal Fade & Scale */
+    .modal-backdrop {
+      background-color: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+    }
+
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+      #device-wrapper { width: 100% !important; max-width: 100% !important; box-shadow: none !important; border: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-800 antialiased min-h-screen flex flex-col items-center">
+
+  <!-- ==================================================== -->
+  <!-- TOP DEVICE SIMULATOR TOOLBAR -->
+  <!-- ==================================================== -->
+  <header class="w-full bg-slate-950/95 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 text-white no-print shadow-xl">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3">
+      
+      <!-- Brand & Mode Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-tr from-sky-500 via-emerald-500 to-amber-500 flex items-center justify-center font-black text-white text-base shadow-md">
+          🇮🇹🇸🇮
+        </div>
+        <div>
+          <div class="text-[11px] font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1.5">
+            <span>2027 盛夏跨國自駕深度遊 • 載具切換設定</span>
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          </div>
+          <div class="text-sm font-extrabold text-slate-100 flex items-center gap-2">
+            <span id="currentDeviceLabel">💻 電腦版（寬螢幕 100%）</span>
+            <span id="currentDimensionLabel" class="text-[11px] font-mono text-sky-300 bg-slate-800/80 px-2 py-0.5 rounded-md border border-slate-700">100% 滿版自適應</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 Device Presets -->
+      <div class="flex items-center bg-slate-900 p-1 rounded-2xl border border-slate-800 shadow-inner gap-1">
+        <!-- Desktop -->
+        <button onclick="setDeviceMode('desktop')" id="btn-desktop" class="device-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <span class="hidden sm:inline">電腦版</span>
+        </button>
+
+        <!-- Mobile Portrait -->
+        <button onclick="setDeviceMode('mobile')" id="btn-mobile" class="device-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-300 hover:text-white hover:bg-slate-800">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          <span>📲 手機直式</span>
+        </button>
+
+        <!-- Tablet 16:9 -->
+        <button onclick="setDeviceMode('tablet-16-9')" id="btn-tablet" class="device-btn flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition text-slate-300 hover:text-white hover:bg-slate-800">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          <span>📱 平板 16:9</span>
+        </button>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-2">
+        <button onclick="window.print()" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+          <span class="hidden sm:inline">列印 / 匯出</span>
+        </button>
+        <button onclick="resetTripProgress()" class="px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-rose-500/20 text-rose-300 border border-rose-500/30 hover:bg-rose-500/30 transition">
+          重置進度
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================================================== -->
+  <!-- MAIN SIMULATOR CONTAINER -->
+  <!-- ==================================================== -->
+  <div id="device-wrapper" class="frame-desktop bg-[#f8fafc] overflow-hidden relative transition-all duration-300 min-h-screen">
+
+    <!-- Mobile Top Bezel (Only visible in mobile mode) -->
+    <div id="sim-status-bar" class="hidden bg-slate-950 text-white px-7 py-2.5 flex items-center justify-between text-xs font-semibold select-none border-b border-slate-800/80">
+      <span class="font-mono text-[11px] font-bold">09:41</span>
+      <!-- Dynamic Island -->
+      <div class="h-4 w-32 bg-black rounded-full border border-slate-800 flex items-center justify-center gap-1.5">
+        <span class="text-[9px]">🏔️ 多洛米蒂 22°C</span>
+        <div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>
+      </div>
+      <div class="flex items-center gap-1 text-[11px]">
+        <span>5G</span>
+        <span class="text-[10px]">100%</span>
+      </div>
+    </div>
+
+    <!-- Tablet 16:9 Indicator Bar (Only visible in tablet 16:9 mode) -->
+    <div id="sim-tablet-bar" class="hidden bg-slate-900 text-sky-200 px-6 py-1.5 flex items-center justify-between text-xs font-semibold select-none border-b border-sky-800/50">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
+        <span class="font-bold text-[11px]">📱 平板 16:9 寬螢幕劇院模式（1024 × 576 規格優化）</span>
+      </div>
+      <div class="text-[11px] text-slate-400">雙欄流暢網格 • 點選景點即開 Google 地圖與歷史導覽</div>
+    </div>
+
+    <!-- Hero Header -->
+    <header class="hero-gradient text-white shadow-xl relative overflow-hidden border-b-4 border-amber-400">
+      <div class="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-white/20 text-white backdrop-blur-md border border-white/30 mb-2.5 shadow-sm">
+              <span>🇮🇹 義大利 & 🇸🇮 斯洛維尼亞</span>
+              <span>•</span>
+              <span>2027/08/08 (日) ~ 08/21 (六) • 14 天跨國自駕深度慢遊</span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl font-black tracking-tight text-white flex items-center gap-2.5">
+              <span>北義水都 • 斯國地底溶洞 • 多洛米蒂仙境 14 日</span>
+            </h1>
+            <p class="mt-2 text-white/90 text-xs sm:text-sm max-w-2xl font-medium leading-relaxed">
+              加達湖畔度假 • 威尼斯大運河彩色島 • 世界級波斯托伊納地底小火車 • 布萊德湖仙境 • 刀背山 Seceda • 米蘭大教堂屋頂漫步
+            </p>
+          </div>
+
+          <!-- Quick Stats Pills -->
+          <div class="grid grid-cols-2 gap-2 text-xs">
+            <div class="bg-white/15 backdrop-blur-md rounded-2xl p-3 border border-white/20 text-center shadow-sm">
+              <div class="text-white/80 font-bold">阿聯酋早鳥機票</div>
+              <div class="text-base sm:text-lg font-black text-amber-200">約 $28,600 /人</div>
+              <div class="text-[10px] text-white/70">杜拜轉機 1 次 • 行李直掛</div>
+            </div>
+            <div class="bg-white/15 backdrop-blur-md rounded-2xl p-3 border border-white/20 text-center shadow-sm">
+              <div class="text-white/80 font-bold">景點深度導覽</div>
+              <div class="text-base sm:text-lg font-black text-emerald-300" id="headerSpotsVisitedCount">點選卡片看說明</div>
+              <div class="text-[10px] text-white/70">含歷史意義 • 照片 • 地圖</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Geographic Stage Navigation Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-6 pt-5 border-t border-white/20 text-xs">
+          <button onclick="filterStage(1)" class="bg-white/10 hover:bg-white/20 backdrop-blur rounded-xl p-2.5 border border-white/20 text-left transition">
+            <div class="font-extrabold text-sky-200 text-xs">🏎️ 第一階段 • 水都湖畔</div>
+            <div class="text-[11px] text-white/90 truncate">Day 1~4 • 米蘭、加達湖、威尼斯</div>
+          </button>
+          <button onclick="filterStage(2)" class="bg-white/10 hover:bg-white/20 backdrop-blur rounded-xl p-2.5 border border-white/20 text-left transition">
+            <div class="font-extrabold text-emerald-200 text-xs">🐉 第二階段 • 斯洛維尼亞</div>
+            <div class="text-[11px] text-white/90 truncate">Day 5~6 • 地底溶洞火車、峭壁懸崖堡</div>
+          </button>
+          <button onclick="filterStage(3)" class="bg-white/10 hover:bg-white/20 backdrop-blur rounded-xl p-2.5 border border-white/20 text-left transition">
+            <div class="font-extrabold text-amber-200 text-xs">🏔️ 第三階段 • 多洛米蒂</div>
+            <div class="text-[11px] text-white/90 truncate">Day 7~10 • 布萊德湖、刀背山雙基地</div>
+          </button>
+          <button onclick="filterStage(4)" class="bg-white/10 hover:bg-white/20 backdrop-blur rounded-xl p-2.5 border border-white/20 text-left transition">
+            <div class="font-extrabold text-purple-200 text-xs">🛍️ 第四階段 • 米蘭都會</div>
+            <div class="text-[11px] text-white/90 truncate">Day 11~14 • 提前還車、大教堂、採買</div>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- Navigation Bar & Search Input -->
+    <nav class="sticky top-0 sm:top-14 z-40 bg-white/95 backdrop-blur-md border-b border-sky-100 shadow-sm no-print">
+      <div class="max-w-6xl mx-auto px-3 sm:px-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 py-2">
+          
+          <!-- Nav Tabs -->
+          <div class="flex items-center gap-1.5 overflow-x-auto py-1 scrollbar-none text-xs">
+            <button onclick="switchTab('itinerary')" id="nav-itinerary" class="nav-tab-btn px-3 py-1.5 rounded-xl border border-transparent transition whitespace-nowrap flex items-center gap-1.5 nav-tab-active font-bold">
+              <span>📅 每日行程 (點景點看照片與地圖)</span>
+            </button>
+            <button onclick="switchTab('stages')" id="nav-stages" class="nav-tab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-600 hover:text-sky-600 transition whitespace-nowrap flex items-center gap-1.5 font-bold">
+              <span>🗺️ 四大階段地圖路線</span>
+            </button>
+            <button onclick="switchTab('flights')" id="nav-flights" class="nav-tab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-600 hover:text-sky-600 transition whitespace-nowrap flex items-center gap-1.5 font-bold">
+              <span>✈️ 航班與自駕跨國通行證</span>
+            </button>
+            <button onclick="switchTab('stays')" id="nav-stays" class="nav-tab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-600 hover:text-sky-600 transition whitespace-nowrap flex items-center gap-1.5 font-bold">
+              <span>🏨 各站住宿與雙基地策略</span>
+            </button>
+            <button onclick="switchTab('food')" id="nav-food" class="nav-tab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-600 hover:text-sky-600 transition whitespace-nowrap flex items-center gap-1.5 font-bold">
+              <span>🍴 義斯跨國必吃美食</span>
+            </button>
+            <button onclick="switchTab('budget')" id="nav-budget" class="nav-tab-btn px-3 py-1.5 rounded-xl border border-transparent text-slate-600 hover:text-sky-600 transition whitespace-nowrap flex items-center gap-1.5 font-bold">
+              <span>🧮 預算試算與行前清單</span>
+            </button>
+          </div>
+
+          <!-- Search -->
+          <div class="relative w-full sm:w-64 flex-shrink-0">
+            <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="搜尋景點、溶洞、刀背山、冰淇淋..." 
+              class="w-full pl-8 pr-7 py-1 text-xs bg-sky-50/60 border border-sky-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition" />
+            <svg class="w-3.5 h-3.5 text-sky-500 absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1.5 text-xs text-slate-400 hover:text-slate-600 font-bold">×</button>
+          </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Body -->
+    <main class="max-w-6xl mx-auto px-3 sm:px-6 py-5">
+
+      <!-- ==================================================== -->
+      <!-- TAB 1: 14 DAYS DETAILED ITINERARY -->
+      <!-- ==================================================== -->
+      <div id="view-itinerary" class="tab-content space-y-4">
+
+        <!-- Banner Prompt -->
+        <div class="bg-gradient-to-r from-sky-50 via-emerald-50 to-amber-50 p-3 rounded-2xl border border-sky-200/80 flex items-center justify-between text-xs text-sky-950 shadow-xs">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">💡</span>
+            <span><strong>互動提示：</strong>每日行程中的每個景點卡片皆可<strong>直接點選</strong>，立即跳出<strong>歷史意義、旅遊價值、高清實景照片與即時 GOOGLE 互動地圖導航</strong>！</span>
+          </div>
+          <span class="hidden sm:inline-block px-2.5 py-1 rounded-lg bg-sky-600 text-white font-bold text-[11px] shadow-2xs">共 19 個深度景點導覽</span>
+        </div>
+
+        <!-- Day Selector Carousel -->
+        <div class="bg-white p-2.5 rounded-2xl border border-sky-100 shadow-sm flex items-center justify-between gap-2 overflow-x-auto">
+          <div class="flex items-center gap-1.5 flex-nowrap" id="dayPillsContainer">
+            <!-- Populated by JS -->
+          </div>
+          <div class="flex items-center gap-2 pl-2 border-l border-slate-200 flex-shrink-0">
+            <button onclick="toggleAllDays()" id="btnToggleAllDays" class="text-xs px-2.5 py-1 rounded-xl border border-slate-300 hover:bg-slate-50 font-bold text-slate-700 whitespace-nowrap">
+              📑 展開全 14 天
+            </button>
+          </div>
+        </div>
+
+        <!-- Itinerary Cards Container -->
+        <div id="itineraryContainer" class="space-y-4">
+          <!-- Populated by JS -->
+        </div>
+
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- TAB 2: 4 STAGES ROUTE OVERVIEW -->
+      <!-- ==================================================== -->
+      <div id="view-stages" class="tab-content hidden space-y-4">
+        <div class="bg-white p-5 rounded-3xl border border-sky-100 shadow-sm">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-xs font-extrabold">四階段跨國自駕地圖</span>
+            <h2 class="text-lg sm:text-xl font-black text-slate-900">🗺️ 14 天跨國深度自駕路線圖解與節奏規劃</h2>
+          </div>
+          <p class="text-slate-600 text-xs sm:text-sm">
+            本行程完美平衡「都市文化」、「湖泊水都」、「世界級地底自然奇觀」與「阿爾卑斯白雲石高山」，採逆時針環線自駕，順暢不繞路。
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+            <!-- Stage 1 -->
+            <div class="p-4 rounded-2xl border-2 border-sky-200 bg-sky-50/40 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-sky-200 text-sky-900">第一階段 • Day 1 ~ 4</span>
+                  <span class="text-xs font-bold text-sky-700">約 270 km</span>
+                </div>
+                <h3 class="text-base font-black text-slate-900 mt-2">🏎️ 北義浪漫水都與夏日湖畔漫遊</h3>
+                <div class="text-xs text-slate-600 mt-1 font-semibold">米蘭機場取車 ➔ 加達湖 Sirmione ➔ 威尼斯 (宿 Mestre)</div>
+                <ul class="mt-3 space-y-1.5 text-xs text-slate-700">
+                  <li>• <strong>Day 1：</strong>抵達米蘭取車，Navigli 運河區開胃酒晚餐，調時差。</li>
+                  <li>• <strong>Day 2：</strong>加達湖畔 Sirmione 水上古堡、湖濱散步、巨型 Gelato 冰淇淋。</li>
+                  <li>• <strong>Day 3：</strong>開往威尼斯，入住島外 Mestre 方便停車免拖行李，傍晚火車進島看大運河夜景。</li>
+                  <li>• <strong>Day 4：</strong>彩色島 (Burano) 童話拍照、里亞托橋、享用正宗威尼斯墨魚麵。</li>
+                </ul>
+              </div>
+              <div class="mt-4 pt-3 border-t border-sky-200 text-[11px] font-bold text-sky-800">
+                💡 智慧亮點：威尼斯住島外 Mestre，避開昂貴進島停車費與大運河搬行李之苦。
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="p-4 rounded-2xl border-2 border-emerald-200 bg-emerald-50/40 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-200 text-emerald-900">第二階段 • Day 5 ~ 6</span>
+                  <span class="text-xs font-bold text-emerald-700">約 260 km</span>
+                </div>
+                <h3 class="text-base font-black text-slate-900 mt-2">🐉 斯洛維尼亞：地底小火車與古堡解謎</h3>
+                <div class="text-xs text-slate-600 mt-1 font-semibold">威尼斯 ➔ 跨國入境 ➔ 波斯托伊納溶洞 ➔ 盧比安納 (連住 2 晚)</div>
+                <ul class="mt-3 space-y-1.5 text-xs text-slate-700">
+                  <li>• <strong>Day 5：</strong>購買斯國電子通行證 e-Vignette，搭雙軌敞篷地底小火車深入世界級波斯托伊納溶洞，看懸崖洞穴城堡。</li>
+                  <li>• <strong>Day 6：</strong>盧比安納城堡參加 "Castle Escape" 實境密室解謎；河畔露天下午茶大啖肉桂蘋果捲與冰淇淋，逛前衛 Metelkova 塗鴉區。</li>
+                </ul>
+              </div>
+              <div class="mt-4 pt-3 border-t border-emerald-200 text-[11px] font-bold text-emerald-800">
+                💡 智慧亮點：連住斯國首都 2 晚，放慢節奏，結合地底探險與古堡解謎親子共遊！
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="p-4 rounded-2xl border-2 border-amber-200 bg-amber-50/40 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-amber-200 text-amber-900">第三階段 • Day 7 ~ 10</span>
+                  <span class="text-xs font-bold text-amber-700">約 320 km</span>
+                </div>
+                <h3 class="text-base font-black text-slate-900 mt-2">🏔️ 多洛米蒂「雙基地」阿爾卑斯深度遊</h3>
+                <div class="text-xs text-slate-600 mt-1 font-semibold">布萊德湖 ➔ Cortina (東側 2 晚) ➔ Val Gardena (西側 2 晚)</div>
+                <ul class="mt-3 space-y-1.5 text-xs text-slate-700">
+                  <li>• <strong>Day 7：</strong>夢幻布萊德湖划 SUP 站立槳、品嚐奶油蛋糕，午後駛入多洛米蒂東側門戶 Cortina。</li>
+                  <li>• <strong>Day 8：</strong>蒂芙尼藍湖 Lago di Braies 划復古木船，下午輕鬆健行三稜鏡山 (Tre Cime)。</li>
+                  <li>• <strong>Day 9：</strong>自駕翻越著名 Pass Pordoi 髮夾彎景觀公路，進駐西側童話木屋 Val Gardena。</li>
+                  <li>• <strong>Day 10：</strong>搭高空纜車直達 2,500m Seceda「刀背山上帝的王座」，在山頂草坡阿爾卑斯木屋漫步放空！</li>
+                </ul>
+              </div>
+              <div class="mt-4 pt-3 border-t border-amber-200 text-[11px] font-bold text-amber-800">
+                💡 智慧亮點：東側 Cortina + 西側 Val Gardena 各住 2 晚，零拉車，玩遍多洛米蒂核心！
+              </div>
+            </div>
+
+            <!-- Stage 4 -->
+            <div class="p-4 rounded-2xl border-2 border-purple-200 bg-purple-50/40 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-purple-200 text-purple-900">第四階段 • Day 11 ~ 14</span>
+                  <span class="text-xs font-bold text-purple-700">約 310 km (還車後地鐵)</span>
+                </div>
+                <h3 class="text-base font-black text-slate-900 mt-2">🛍️ 提前還車、米蘭都會慢活與大採買</h3>
+                <div class="text-xs text-slate-600 mt-1 font-semibold">回到米蘭 ➔ 下午正式還車 ➔ 地鐵慢遊 (宿米蘭 3 晚)</div>
+                <ul class="mt-3 space-y-1.5 text-xs text-slate-700">
+                  <li>• <strong>Day 11：</strong>中午開回米蘭立即還車！省下 3 天租車與停車費，徹底避開 ZTL 罰單。</li>
+                  <li>• <strong>Day 12：</strong>米蘭大教堂買票登頂在白色大理石尖塔間漫步，逛艾曼紐迴廊與奢華星巴克烘焙工坊。</li>
+                  <li>• <strong>Day 13：</strong>米蘭深度悠閒採買，或搭火車輕鬆當日往返利古里亞海五漁村 (Cinque Terre)。</li>
+                  <li>• <strong>Day 14：</strong>米蘭最後退稅採買，22:15 班機起飛滿載回憶返台。</li>
+                </ul>
+              </div>
+              <div class="mt-4 pt-3 border-t border-purple-200 text-[11px] font-bold text-purple-800">
+                💡 智慧亮點：提早還車是歐洲自駕最高明的策略！省租金、省昂貴市區停車費、絕無 ZTL 罰單。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- TAB 3: FLIGHTS & CROSS-BORDER TRANSIT -->
+      <!-- ==================================================== -->
+      <div id="view-flights" class="tab-content hidden space-y-4">
+        <div class="bg-white p-5 rounded-3xl border border-sky-100 shadow-sm">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-sky-100 text-sky-800 text-xs font-extrabold">國際航班時刻與跨國法規</span>
+            <h2 class="text-lg sm:text-xl font-black text-slate-900">✈️ 阿聯酋航空時刻表 • 斯洛維尼亞電子過境證 • 義大利 ZTL 避坑指南</h2>
+          </div>
+
+          <!-- Flights Row -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+            <div class="p-4 rounded-2xl border border-sky-200 bg-sky-50/50">
+              <div class="flex items-center justify-between pb-2 border-b border-sky-200">
+                <span class="font-extrabold text-sm text-sky-900">🛫 去程航段（2027/08/08 週日）</span>
+                <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-sky-200 text-sky-900">台北 ➔ 杜拜 ➔ 米蘭</span>
+              </div>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex justify-between">
+                  <div>
+                    <div class="font-black text-slate-900 text-sm">00:30 台北桃園 (TPE)</div>
+                    <div class="text-[11px] text-slate-500">阿聯酋航空 EK367 • A380 巨無霸雙層客機</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-sky-700 font-bold">杜拜中轉約 3 小時</span>
+                  </div>
+                </div>
+                <div class="flex justify-between pt-2 border-t border-sky-100">
+                  <div>
+                    <div class="font-black text-slate-900 text-sm">14:10 抵達米蘭馬爾彭薩 (MXP T1)</div>
+                    <div class="text-[11px] text-slate-500">同日抵達，通關約 50 分鐘，從容悠閒機場取車</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded font-bold text-[10px]">票價約 NT$ 28,600</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-2xl border border-purple-200 bg-purple-50/50">
+              <div class="flex items-center justify-between pb-2 border-b border-purple-200">
+                <span class="font-extrabold text-sm text-purple-900">🛬 回程航段（2027/08/21 週六）</span>
+                <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-purple-200 text-purple-900">米蘭 ➔ 杜拜 ➔ 台北</span>
+              </div>
+              <div class="mt-3 space-y-2 text-xs">
+                <div class="flex justify-between">
+                  <div>
+                    <div class="font-black text-slate-900 text-sm">22:15 米蘭馬爾彭薩 (MXP T1)</div>
+                    <div class="text-[11px] text-slate-500">阿聯酋航空 EK206 • 晚班機玩到最後一刻</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-purple-700 font-bold">杜拜中轉約 2.5 小時</span>
+                  </div>
+                </div>
+                <div class="flex justify-between pt-2 border-t border-purple-100">
+                  <div>
+                    <div class="font-black text-slate-900 text-sm">21:20+1 抵達台北桃園 (TPE)</div>
+                    <div class="text-[11px] text-slate-500">8/22 (日) 晚間平安返抵台灣，隔天可收心上班上學</div>
+                  </div>
+                  <div class="text-right">
+                    <span class="px-2 py-0.5 bg-indigo-100 text-indigo-800 rounded font-bold text-[10px]">完美跨週末晚機</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cross-Border Driving Must-Knows -->
+          <h3 class="text-sm font-extrabold text-slate-900 mt-6 mb-3">🚗 跨國自駕四大核心注意事項</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+              <div>
+                <div class="font-extrabold text-emerald-800 mb-1 flex items-center gap-1.5">
+                  <span>🇸🇮 斯洛維尼亞電子過境證</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-[11px]">
+                  斯國高速公路無收費站，<strong>進入國境前務必上官網 (evinjeta.dars.si) 購買 e-Vignette 電子通行證</strong>（週票約 €16）。車牌自動辨識，未買罰款高達 €300。
+                </p>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+              <div>
+                <div class="font-extrabold text-rose-800 mb-1 flex items-center gap-1.5">
+                  <span>⚠️ 義大利 ZTL 歷史禁行區</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-[11px]">
+                  義大利各大古城（米蘭、維羅納等）中心設有 <strong>Zona a Traffico Limitato (ZTL)</strong>，非許可車輛誤入會被自動照相開罰約 €100/次。威尼斯住島外 Mestre、米蘭提早還車正是為了避開 ZTL！
+                </p>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+              <div>
+                <div class="font-extrabold text-sky-800 mb-1 flex items-center gap-1.5">
+                  <span>🏔️ 多洛米蒂山路自駕守則</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-[11px]">
+                  Pass Pordoi 等高山公路坡度大且多連續髮夾彎，<strong>下坡請善用低速檔（引擎煞車）</strong>，避免長踩腳煞車過熱失靈。山區天候多變，午後常有陣雨，帶一件防風薄外套。
+                </p>
+              </div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+              <div>
+                <div class="font-extrabold text-amber-800 mb-1 flex items-center gap-1.5">
+                  <span>💳 義大利 Telepass 與信用卡</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-[11px]">
+                  義大利 Autostrade 高速公路為收費制，走標示<strong>白色錢幣/黃色信用卡</strong>車道，插信用卡即可快速扣款（非 Telepass 電子標籤車道）。身上準備 €50 小額歐元現金備用。
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- TAB 4: ACCOMMODATION & HUBS -->
+      <!-- ==================================================== -->
+      <div id="view-stays" class="tab-content hidden space-y-4">
+        <div class="bg-white p-5 rounded-3xl border border-sky-100 shadow-sm">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-indigo-100 text-indigo-800 text-xs font-extrabold">下榻基地策略</span>
+            <h2 class="text-lg sm:text-xl font-black text-slate-900">🏨 14 天精選住宿基地與多洛米蒂雙基地解析</h2>
+          </div>
+          <p class="text-slate-600 text-xs">
+            徹底避免「天天搬行李換飯店」的疲勞，多洛米蒂特別採用<strong>「東側 Cortina + 西側 Val Gardena」雙基地</strong>，零拉車玩遍精華！
+          </p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
+            <!-- Stay 1 -->
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/60">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-sky-200 text-sky-900">Day 1（1 晚）</span>
+                <span class="text-xs font-bold text-slate-500">時尚之都前哨</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-2">📍 米蘭近郊 / 機場周邊質感飯店</h3>
+              <p class="text-xs text-slate-600 mt-1">方便取車後前往 Check-in，晚上搭地鐵至 Navigli 運河區享用開胃酒晚餐，早點休息調整時差。</p>
+            </div>
+
+            <!-- Stay 2 -->
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/60">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-200 text-emerald-900">Day 2（1 晚）</span>
+                <span class="text-xs font-bold text-slate-500">湖畔度假名勝</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-2">📍 加達湖畔 錫爾苗內 (Sirmione) 度假飯店</h3>
+              <p class="text-xs text-slate-600 mt-1">緊鄰阿爾卑斯山腳下的最大湖泊，清晨湖面晨霧與傍晚金黃夕陽美不勝收，漫步出門即是水上古堡。</p>
+            </div>
+
+            <!-- Stay 3 -->
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/60">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-purple-200 text-purple-900">Day 3 ~ Day 4（連續 2 晚）</span>
+                <span class="text-xs font-bold text-purple-700">智慧避坑選擇</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-2">📍 威尼斯島外 梅斯特雷 (Mestre) 附停車飯店</h3>
+              <p class="text-xs text-slate-600 mt-1">免開車進威尼斯本島（本島停車費高達 €45/天且石橋無電梯無法拖行李）。飯店旁搭火車 10 分鐘直達主島聖露西亞站，極度輕鬆便利。</p>
+            </div>
+
+            <!-- Stay 4 -->
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/60">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-200 text-emerald-900">Day 5 ~ Day 6（連續 2 晚）</span>
+                <span class="text-xs font-bold text-emerald-700">綠色之都心臟</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-2">📍 斯洛維尼亞首都 盧比安納 (Ljubljana) 核心飯店</h3>
+              <p class="text-xs text-slate-600 mt-1">連住 2 晚！步行即可抵達三重橋、飛龍橋與盧比安納河畔露天咖啡街，夜晚安全愜意，享受悠閒歐洲慢調生活。</p>
+            </div>
+
+            <!-- Stay 5 -->
+            <div class="p-4 rounded-2xl border-2 border-amber-300 bg-amber-50/50">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-amber-200 text-amber-900">Day 7 ~ Day 8（連續 2 晚）</span>
+                <span class="text-xs font-bold text-amber-800">多洛米蒂東側基地</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-2">📍 科爾蒂納丹佩佐 (Cortina d'Ampezzo) 木屋飯店</h3>
+              <p class="text-xs text-slate-600 mt-1">冬季奧運與阿爾卑斯頂級山城，作為造訪「蒂芙尼藍湖 Lago di Braies」與「三稜鏡山 Tre Cime」的最佳出發起點。</p>
+            </div>
+
+            <!-- Stay 6 -->
+            <div class="p-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50/50">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-emerald-200 text-emerald-900">Day 9 ~ Day 10（連續 2 晚）</span>
+                <span class="text-xs font-bold text-emerald-800">多洛米蒂西側基地</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-2">📍 加爾代納山谷 (Val Gardena - Ortisei) 阿爾卑斯渡假木屋</h3>
+              <p class="text-xs text-slate-600 mt-1">純樸如童話的世界遺產山谷，走路即可抵達直通 2,500m Seceda 刀背山纜車站與休斯高原，推開窗即是巍峨巨岩石壁！</p>
+            </div>
+
+            <!-- Stay 7 -->
+            <div class="p-4 rounded-2xl border border-slate-200 bg-slate-50/60 md:col-span-2">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-black px-2.5 py-0.5 rounded-full bg-purple-200 text-purple-900">Day 11 ~ Day 13（連續 3 晚）</span>
+                <span class="text-xs font-bold text-purple-800">還車後都會生活</span>
+              </div>
+              <h3 class="text-base font-extrabold text-slate-900 mt-2">📍 米蘭市中心地鐵站旁飯店 (Centrale / Duomo 沿線)</h3>
+              <p class="text-xs text-slate-600 mt-1">Day 11 下午正式還車後入住，全家輕鬆利用米蘭發達的地鐵路網慢遊大教堂、迴廊名店街，甚至可安排搭火車一日往返五漁村！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- TAB 5: FOOD & GASTRONOMY -->
+      <!-- ==================================================== -->
+      <div id="view-food" class="tab-content hidden space-y-4">
+        <div class="bg-white p-5 rounded-3xl border border-sky-100 shadow-sm">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800 text-xs font-extrabold">跨國饕客地圖</span>
+            <h2 class="text-lg sm:text-xl font-black text-slate-900">🍴 北義與斯洛維尼亞必吃經典美食指南</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5" id="foodsGridContainer">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================================================== -->
+      <!-- TAB 6: BUDGET & PACKLIST -->
+      <!-- ==================================================== -->
+      <div id="view-budget" class="tab-content hidden space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <!-- Budget Calculator -->
+          <div class="bg-white p-5 rounded-3xl border border-sky-100 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                <h3 class="text-sm sm:text-base font-black text-slate-900">🧮 14 天旅行預算動態試算 (每人預估)</h3>
+                <span class="text-[11px] px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 font-bold">1 EUR ≈ 35 NTD</span>
+              </div>
+
+              <!-- Sliders -->
+              <div class="mt-4 space-y-3.5 text-xs">
+                <div>
+                  <div class="flex justify-between font-bold text-slate-700">
+                    <span>✈️ 阿聯酋早鳥機票 (杜拜轉機)</span>
+                    <span id="label-flight">NT$ 28,600 (€817)</span>
+                  </div>
+                  <input type="range" id="input-flight" min="25000" max="45000" step="500" value="28600" oninput="calculateBudget()" class="w-full mt-1 accent-sky-600">
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold text-slate-700">
+                    <span>🏨 13 晚特色飯店 (雙人拆半)</span>
+                    <span id="label-stay">NT$ 38,000 (€1,085)</span>
+                  </div>
+                  <input type="range" id="input-stay" min="25000" max="65000" step="1000" value="38000" oninput="calculateBudget()" class="w-full mt-1 accent-sky-600">
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold text-slate-700">
+                    <span>🚗 11 天自駕租車、油資、過境證與高速費 (每人拆半)</span>
+                    <span id="label-transit">NT$ 12,500 (€357)</span>
+                  </div>
+                  <input type="range" id="input-transit" min="8000" max="25000" step="500" value="12500" oninput="calculateBudget()" class="w-full mt-1 accent-sky-600">
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold text-slate-700">
+                    <span>🎟️ 溶洞火車、Seceda 纜車、城堡解謎與門票</span>
+                    <span id="label-ticket">NT$ 8,500 (€242)</span>
+                  </div>
+                  <input type="range" id="input-ticket" min="4000" max="18000" step="500" value="8500" oninput="calculateBudget()" class="w-full mt-1 accent-sky-600">
+                </div>
+
+                <div>
+                  <div class="flex justify-between font-bold text-slate-700">
+                    <span>🍽️ 14 天精緻美饌、冰淇淋、甜點與咖啡</span>
+                    <span id="label-food">NT$ 24,000 (€685)</span>
+                  </div>
+                  <input type="range" id="input-food" min="15000" max="45000" step="1000" value="24000" oninput="calculateBudget()" class="w-full mt-1 accent-sky-600">
+                </div>
+              </div>
+            </div>
+
+            <!-- Total -->
+            <div class="mt-5 pt-3 border-t border-slate-100 bg-sky-50/70 p-3.5 rounded-2xl">
+              <div class="flex items-baseline justify-between">
+                <span class="text-xs font-bold text-slate-700">每人預估總計：</span>
+                <div class="text-right">
+                  <div class="text-xl font-black text-sky-700" id="totalNTD">NT$ 111,600</div>
+                  <div class="text-[11px] text-slate-500 font-bold" id="totalEUR">約 €3,188 歐元</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pack List -->
+          <div class="bg-white p-5 rounded-3xl border border-sky-100 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+                <h3 class="text-sm sm:text-base font-black text-slate-900">🎒 阿爾卑斯夏日跨國打包清單</h3>
+                <span class="text-xs font-bold px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full" id="packProgress">0 / 12 完成</span>
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1.5">點擊打勾即時存檔至瀏覽器：</p>
+              <div class="mt-3 space-y-1.5 text-xs" id="packListContainer">
+                <!-- Rendered by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Mobile Home Indicator -->
+    <div id="sim-home-bar" class="hidden pb-2 pt-2.5 flex justify-center bg-slate-100 select-none">
+      <div class="w-32 h-1 bg-slate-800/40 rounded-full"></div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Floating Quick Day Navigator -->
+  <div id="quickDayNav" class="fixed bottom-4 z-40 bg-slate-900/90 text-white backdrop-blur-md px-3.5 py-2 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs border border-slate-700 no-print">
+    <button onclick="navigateDay(-1)" class="px-2.5 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 active:bg-slate-600 font-bold">
+      ◀ 前一天
+    </button>
+    <span id="quickDayIndicator" class="font-black text-amber-400 px-1 font-mono">Day 1 / 14</span>
+    <button onclick="navigateDay(1)" class="px-2.5 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 active:bg-slate-600 font-bold">
+      後一天 ▶
+    </button>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- ATTRACTION DETAIL MODAL (HISTORICAL & MAP DRAWER) -->
+  <!-- ==================================================== -->
+  <div id="attractionModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 no-print">
+    <!-- Backdrop -->
+    <div class="modal-backdrop absolute inset-0 transition-opacity" onclick="closeAttractionModal()"></div>
+
+    <!-- Dialog Box -->
+    <div class="relative bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-3xl w-full max-h-[92vh] overflow-y-auto z-10 animate-scale-up">
+      
+      <!-- Top Image with Badges & Close -->
+      <div class="relative h-56 sm:h-72 w-full overflow-hidden rounded-t-3xl bg-slate-900">
+        <img id="modalSpotImg" src="" alt="景點實景照片" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30"></div>
+        
+        <!-- Close Button -->
+        <button onclick="closeAttractionModal()" class="absolute top-3.5 right-3.5 w-8 h-8 rounded-full bg-black/60 hover:bg-black text-white flex items-center justify-center transition backdrop-blur shadow-md">
+          ✕
+        </button>
+
+        <!-- Image Text Overlays -->
+        <div class="absolute bottom-4 left-4 right-4 text-white">
+          <div class="flex flex-wrap items-center gap-2 mb-1.5">
+            <span id="modalSpotCategory" class="px-2.5 py-0.5 rounded-full text-[10px] font-black bg-sky-500 text-white shadow-xs">類別</span>
+            <span id="modalSpotLocation" class="text-xs text-sky-200 font-bold">城市/國家</span>
+          </div>
+          <h2 id="modalSpotTitle" class="text-xl sm:text-2xl font-black text-white drop-shadow">景點名稱</h2>
+          <div id="modalSpotEnTitle" class="text-xs text-white/80 font-mono mt-0.5">English / Localized Name</div>
+        </div>
+      </div>
+
+      <!-- Modal Body Content -->
+      <div class="p-5 sm:p-6 space-y-5">
+        
+        <!-- 1. Historical Significance -->
+        <div class="bg-amber-50/70 p-4 rounded-2xl border border-amber-200/80">
+          <div class="flex items-center gap-2 text-amber-900 font-extrabold text-sm mb-1.5">
+            <span class="text-lg">🏛️</span>
+            <span>歷史意義與人文背景 (Historical Significance)</span>
+          </div>
+          <p id="modalSpotHistory" class="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+            載入中...
+          </p>
+        </div>
+
+        <!-- 2. Travel Value & Highlights -->
+        <div class="bg-emerald-50/70 p-4 rounded-2xl border border-emerald-200/80">
+          <div class="flex items-center gap-2 text-emerald-900 font-extrabold text-sm mb-1.5">
+            <span class="text-lg">⭐</span>
+            <span>旅遊價值與核心必看亮點 (Travel Value & Experience)</span>
+          </div>
+          <p id="modalSpotValue" class="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+            載入中...
+          </p>
+        </div>
+
+        <!-- 3. Practical Tips Chips -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-xs">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="text-slate-400 font-bold block text-[10px]">⏱️ 建議停留時間</span>
+            <span id="modalSpotTime" class="font-extrabold text-slate-800 text-xs">約 2 小時</span>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="text-slate-400 font-bold block text-[10px]">🎟️ 門票 / 預約建議</span>
+            <span id="modalSpotTicket" class="font-extrabold text-slate-800 text-xs">免費參觀</span>
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <span class="text-slate-400 font-bold block text-[10px]">👟 穿著 / 體驗提醒</span>
+            <span id="modalSpotGear" class="font-extrabold text-slate-800 text-xs">好走的鞋子</span>
+          </div>
+        </div>
+
+        <!-- 4. Interactive Google Maps Embed -->
+        <div class="space-y-2">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1.5 text-xs font-extrabold text-slate-900">
+              <span class="text-base text-rose-500">📍</span>
+              <span>GOOGLE 互動地圖與位置導航</span>
+            </div>
+            <a id="modalSpotGoogleLink" href="#" target="_blank" rel="noopener noreferrer" 
+              class="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-800 hover:underline">
+              <span>在 Google 地圖中開啟導航</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+          <!-- Iframe Frame -->
+          <div class="w-full h-56 sm:h-64 rounded-2xl overflow-hidden border border-slate-200 shadow-inner bg-slate-100">
+            <iframe id="modalSpotIframe" src="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-slate-50 border-t border-slate-100 rounded-b-3xl flex items-center justify-between">
+        <button id="modalCheckinBtn" onclick="toggleSpotCheckin()" class="px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center gap-1.5 shadow-sm">
+          <span>✓ 標記為已踩點</span>
+        </button>
+        <button onclick="closeAttractionModal()" class="px-4 py-2 rounded-xl text-xs font-bold bg-slate-200 hover:bg-slate-300 text-slate-700 transition">
+          關閉說明
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================================================== -->
+  <!-- JAVASCRIPT APPLICATION DATA & LOGIC -->
+  <!-- ==================================================== -->
+  <script>
+    // Master Attractions Database with History, Travel Value, Photos, and Google Map Query
+    const ATTRACTIONS = {
+      "navigli": {
+        id: "navigli",
+        title: "米蘭運河區 (Navigli)",
+        enTitle: "Navigli District, Milano",
+        category: "歷史運河 • 浪漫夜生活",
+        location: "義大利 米蘭 (Milano)",
+        img: "https://images.unsplash.com/photo-1543429776-2782fc8e1acd?auto=format&fit=crop&w=1000&q=80",
+        history: "米蘭運河系統歷史最早可追溯至 12 世紀，最初為了灌溉與防禦，隨後演變成連結北部湖泊與米蘭的重要水上商道。15 世紀文藝復興大師達文西 (Leonardo da Vinci) 曾親自改進其精密的水閘系統（Conca di Viarenna），米蘭大教堂所使用的數千噸珍貴粉紅 Candoglia 大理石，正是經由此運河水路運送進城。",
+        value: "現代米蘭最具波希米亞浪漫情調的區域！兩旁開滿藝術家畫廊、復古小店與熱鬧餐酒館。每日黃昏 18:00 開始，這裡是體驗正宗義大利開胃酒文化 (Aperitivo) 的聖地——點一杯特調 Spritz 或葡萄酒，即可享用豐盛的巴菲點心，坐在水岸露天座欣賞橙紅夕陽倒影，感受米蘭在地悠閒步調。",
+        time: "約 2 ~ 3 小時（傍晚至晚餐最佳）",
+        ticket: "免費漫步參觀，餐飲自理",
+        gear: "輕便平底鞋，薄外套防河畔微風",
+        mapQuery: "Navigli, Milan, Italy"
+      },
+      "sirmione": {
+        id: "sirmione",
+        title: "加達湖畔 錫爾苗內水上古堡",
+        enTitle: "Castello Scaligero & Sirmione, Lake Garda",
+        category: "水上要塞 • 阿爾卑斯湖泊",
+        location: "義大利 錫爾苗內 (Sirmione)",
+        img: "https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?auto=format&fit=crop&w=1000&q=80",
+        history: "錫爾苗內坐落於伸入加達湖中長達 4 公里的狹長半島上，地理位置極險要。這座宏偉的水上防禦城堡建於 13 世紀，由維羅納統治者斯卡利格家族 (Scaligeri) 修建，城堡罕見地由湖水護城河圍繞，擁有內外雙重防禦塔樓與當時艦隊停靠的專用防禦塢港，半島頂端更保留古羅馬詩人卡圖盧斯 (Catullus) 的宏大浴場別墅遺址。",
+        value: "全歐洲最迷人的湖畔小鎮之一！穿過吊橋城門走進中世紀古鎮，沿著湖濱林蔭步道漫步，湖水清澈碧綠，遠眺阿爾卑斯山輪廓。小鎮最著名的是街道上排列的『手工巨型義式冰淇淋塔』，亦可租乘快艇從湖面仰望雄偉城堡倒影，享受極致夏日假期。",
+        time: "約 3 ~ 4 小時",
+        ticket: "小鎮免費，城堡登塔約 €6",
+        gear: "遮陽帽、太陽眼鏡、泳衣（湖邊可戲水）",
+        mapQuery: "Castello Scaligero, Sirmione, Lake Garda, Italy"
+      },
+      "venice-night": {
+        id: "venice-night",
+        title: "威尼斯大運河與聖馬可區夜景",
+        enTitle: "Grand Canal & Piazza San Marco at Night, Venice",
+        category: "世界遺產 • 水都夜色",
+        location: "義大利 威尼斯 (Venezia)",
+        img: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?auto=format&fit=crop&w=1000&q=80",
+        history: "威尼斯建於公元 5 世紀瀉湖淺灘上，曾是長達一千年的海上霸權『威尼斯共和國』首府。大運河兩岸聚集了超過 170 座興建於 13 至 18 世紀的拜占庭、威尼斯哥德式與巴洛克式貴族宮殿，見證了香料之路與東西方貿易的極致繁榮。",
+        value: "威尼斯最靜謐浪漫的時刻是在日落之後！避開日間龐大的一日遊人潮，乘 1 號水上巴士沿大運河滑行，欣賞金色街燈打在古老宮殿石壁上的波光倒影。漫步至聖馬可廣場，兩旁傳奇的百年花神咖啡館 (Caffè Florian) 與夸德里咖啡館露天管弦樂隊現場交響競奏，氛圍無與倫比。",
+        time: "約 2 ~ 3 小時（傍晚至夜間）",
+        ticket: "免費漫步；水上巴士單程 €9.5",
+        gear: "防滑便鞋（石橋上下台階多）",
+        mapQuery: "Piazza San Marco, Venice, Italy"
+      },
+      "burano": {
+        id: "burano",
+        title: "威尼斯彩色島 (布拉諾島)",
+        enTitle: "Burano Island, Venetian Lagoon",
+        category: "繽紛漁村 • 蕾絲工藝",
+        location: "義大利 威尼斯瀉湖 (Burano)",
+        img: "https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1000&q=80",
+        history: "布拉諾島自古是威尼斯瀉湖中的寧靜漁村。相傳中世紀時漁夫在冬日晨霧中出海歸航，為了能在遠處一眼認出自己的家門，便將房屋外牆漆成色彩極度鮮豔的明黃、寶藍、粉紅與亮橘色。16 世紀起，島上婦女更發展出享譽全歐的極致手工針織蕾絲 (Merletto) 工藝，曾是歐洲皇室婚禮首選。",
+        value: "全球評選最美麗的彩色童話小鎮！每家每戶色彩各異，窗台擺滿鮮花，運河倒映著彩虹倒影，無論哪個角落隨手一拍都是明信片級大片。島上特產 Bussolà 奶油甜甜圈餅乾香脆可口，還能造訪傳統蕾絲刺繡工坊。",
+        time: "約 2.5 ~ 3 小時（含船程）",
+        ticket: "搭 12 號水上巴士直達（單程約 40 分鐘）",
+        gear: "亮色系服裝（拍照超上相）、相機充飽電",
+        mapQuery: "Burano, Venice, Italy"
+      },
+      "rialto": {
+        id: "rialto",
+        title: "里亞托橋與威尼斯迷宮後巷",
+        enTitle: "Ponte di Rialto & Venetian Bacari",
+        category: "大運河石橋 • 巷弄美食",
+        location: "義大利 威尼斯 (Venezia)",
+        img: "https://images.unsplash.com/photo-1520175480921-4edfa2983e0f?auto=format&fit=crop&w=1000&q=80",
+        history: "里亞托橋是大運河上歷史最悠久的一座橋樑，於 1591 年由安東尼奧·達·彭特 (Antonio da Ponte) 設計完工，頂住當時眾多建築家質疑，以大膽的單孔石拱跨越 28 公尺河道。幾百年來這裡一直是威尼斯的心臟商業交易中心，莎士比亞名劇《威尼斯商人》便以此為歷史背景。",
+        value: "俯瞰威尼斯大運河的最佳制高點！橋上與橋旁兩側小鋪熱鬧非凡。走下橋鑽入巷弄，探訪威尼斯在地小酒館 (Bacaro)，品嚐站著吃的道地 Cicchetti 炸海鮮麵包小點配一杯 Spritz，午餐必吃香濃無比的經典黑墨魚汁義大利麵！",
+        time: "約 2 小時",
+        ticket: "免費登橋",
+        gear: "耐走健走鞋、Google 離線地圖防迷路",
+        mapQuery: "Ponte di Rialto, Venice, Italy"
+      },
+      "postojna": {
+        id: "postojna",
+        title: "波斯托伊納溶洞 (世界第二大)",
+        enTitle: "Postojna Cave, Slovenia",
+        category: "地下奇景 • 觀光小火車",
+        location: "斯洛維尼亞 波斯托伊納",
+        img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=80",
+        history: "長達 24 公里的波斯托伊納溶洞是歐洲造訪人數最多的鐘乳石洞穴系統，形成耗時數百萬年。1872 年這裡建造了世界上第一條地下觀光雙軌鐵路，並在 1884 年通電照明（甚至比首都盧比安納市區通電還早！），洞內天然形成的巨大音樂廳 (Concert Hall) 回音絕佳，可容納萬人舉辦音樂會。",
+        value: "一生必體驗的驚奇地底之旅！先搭乘長達 3.7 公里的專屬黃色敞篷觀光小火車，在呼嘯微風中穿過千姿百態的巨大鐘乳石石筍林，隨後徒步參觀宛如純白鑽石般的『明亮之石 (Brilliant)』，更有專用水族箱近距離觀察傳說中的『龍之幼崽——人魚 (Proteus)』！",
+        time: "約 1.5 ~ 2 小時（導覽制）",
+        ticket: "成人約 €29，強烈建議官網提早預約時段",
+        gear: "洞內全年恆溫 8~10°C！務必攜帶保暖厚外套、防滑包鞋",
+        mapQuery: "Postojna Cave, Slovenia"
+      },
+      "predjama": {
+        id: "predjama",
+        title: "普里賈瑪懸崖洞穴城堡",
+        enTitle: "Predjama Castle, Slovenia",
+        category: "世界最大洞穴堡壘",
+        location: "斯洛維尼亞 普里賈瑪",
+        img: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1000&q=80",
+        history: "金氏世界紀錄認證『全球最大的洞穴城堡』！建於 123 公尺高的垂直石灰岩峭壁溶洞口，已有 800 多年歷史。15 世紀傳奇俠盜男爵伊拉斯謨 (Erazem) 在此以天然岩壁為屏障，利用後方直通外部的神秘地下秘密溶洞秘密補給新鮮櫻桃與烤肉，抵抗帝國大軍圍困長達一年多。",
+        value: "宛如奇幻魔戒中矮人王國成真的壯觀場景！建築與天然喀斯特溶洞岩石無縫融合，城堡內部保留審訊室、防禦城堞、藏寶庫與地道通風口。距離波斯托伊納溶洞僅 15 分鐘車程，通常購買雙景點聯票順遊最划算。",
+        time: "約 1.5 小時",
+        ticket: "單買約 €17，溶洞聯票更優惠",
+        gear: "石階陡峭，請穿著抓地力佳之球鞋",
+        mapQuery: "Predjama Castle, Slovenia"
+      },
+      "ljubljana-castle": {
+        id: "ljubljana-castle",
+        title: "盧比安納城堡與 Castle Escape 實境解謎",
+        enTitle: "Ljubljana Castle & Escape Game",
+        category: "古堡解謎 • 首都制高點",
+        location: "斯洛維尼亞 盧比安納 (Ljubljana)",
+        img: "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=1000&q=80",
+        history: "高踞於首都核心山丘上長達 900 年的守護要塞，始建於中世紀，歷經哈布斯堡王朝擴建。這座古堡曾是防禦鄂圖曼帝國入侵的前哨要塞、軍隊兵營、監獄與窮人住所，如今演變為綠意環繞的多元文化殿堂與市民婚禮聖地。",
+        value: "搭乘透明全景斜坡纜車 (Funicular) 登頂，登上觀景鐘塔可 360 度鳥瞰盧比安納老城紅磚屋頂與遠處連綿的阿爾卑斯雪山。特別推薦全家一起體驗獨家 'Castle Escape' 實境解謎遊戲，在古堡真實石窟牢房與塔樓中動腦解鎖五大關卡！",
+        time: "約 2 ~ 3 小時",
+        ticket: "纜車+城堡門票約 €16；解謎遊戲需事先預約",
+        gear: "舒適運動鞋、解謎需邏輯合作精神",
+        mapQuery: "Ljubljana Castle, Grajska planota 1, Ljubljana, Slovenia"
+      },
+      "ljubljana-river": {
+        id: "ljubljana-river",
+        title: "盧比安納河畔、三重橋與 Metelkova 塗鴉區",
+        enTitle: "Triple Bridge & Metelkova Art District",
+        category: "世遺建築 • 露天咖啡慢活",
+        location: "斯洛維尼亞 盧比安納 (Ljubljana)",
+        img: "https://images.unsplash.com/photo-1587974928442-77dc3e0dba72?auto=format&fit=crop&w=1000&q=80",
+        history: "斯洛維尼亞名建築師普雷契尼克 (Jože Plečnik) 將盧比安納打造成新古典與現代主義交融的世遺之城，著名的三重橋 (Tromostovje) 將老城與新城巧妙連通；而飛龍橋 (Dragon Bridge) 則以四隻栩栩如生的守護青銅飛龍象徵力量。城北的 Metelkova 原為舊南斯拉夫軍營，1993 年被藝術家改造成歐洲最前衛的塗鴉自治區。",
+        value: "全歐洲最宜居、最綠化且完全無車輛干擾的首都！盧比安納河兩側種滿垂柳，排滿了悠閒的露天咖啡座。推薦在知名 Cacao 點份手工冰淇淋，或在 Slovenska Hiša 享用斯國傳統肉桂蘋果捲。傍晚漫步至 Metelkova 欣賞繽紛的大型壁畫雕塑，感受強烈的當代藝術活力。",
+        time: "約 2.5 ~ 3 小時（午後至傍晚）",
+        ticket: "免費漫步街區",
+        gear: "悠閒散步心情",
+        mapQuery: "Triple Bridge, Ljubljana, Slovenia"
+      },
+      "lake-bled": {
+        id: "lake-bled",
+        title: "斯洛維尼亞布萊德湖 (阿爾卑斯翡翠之珠)",
+        enTitle: "Lake Bled, Julian Alps",
+        category: "冰川湖心島 • 夢幻城堡",
+        location: "斯洛維尼亞 布萊德 (Bled)",
+        img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1000&q=80",
+        history: "布萊德湖是由朱利安阿爾卑斯山冰川退縮融水形成的純淨冰川湖。湖心島上的聖母升天教堂已有數百年歷史，傳說只要親手敲響教堂內的『許願鐘 (Wishing Bell)』三次，心中的願望就會成真；懸崖高處則聳立著建於 1004 年的斯洛維尼亞最古老中世紀城堡。",
+        value: "美到令人窒息的人間仙境！湖水隨光線變幻著寶石翡翠綠，夏季非常適合在平靜水面上體驗 SUP 站立式划槳，或是搭乘當地傳統木造 Pletna 搖櫓船登島敲鐘。遊湖結束後，務必到湖畔咖啡館品嚐起源於當地的正宗百年布萊德香草奶油蛋糕 (Kremna rezina)！",
+        time: "約 3 ~ 4 小時",
+        ticket: "湖畔免費；Pletna 船票約 €18；城堡門票約 €15",
+        gear: "泳衣、水上活動防曬裝備、毛巾",
+        mapQuery: "Lake Bled, Slovenia"
+      },
+      "lago-di-braies": {
+        id: "lago-di-braies",
+        title: "多洛米蒂布萊埃斯湖 (蒂芙尼藍之湖)",
+        enTitle: "Lago di Braies (Pragser Wildsee), Dolomites",
+        category: "世界自然遺產 • 手划復古木船",
+        location: "義大利 多洛米蒂 (Braies)",
+        img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+        history: "被譽為『多洛米蒂阿爾卑斯山的珍珠』，海拔約 1,496 公尺，是由古代山崩泥石堵塞河道形成的天然堰塞湖。二戰末期 1945 年，這裡曾是納粹秘密集中營高官與各國政要人質獲盟軍解救的著名歷史地點，如今全湖列入 UNESCO 世界自然遺產保護區。",
+        value: "如夢似幻的蒂芙尼藍色 (Tiffany Blue) 湖面，完美倒映著高聳入雲的 Croda del Becco 巨岩雪壁。最經典的體驗就是在湖畔百年復古木造船屋租一艘手工划槳木船，悠悠盪在翡翠綠波心之中，環湖木棧步道平緩好走，隨處都是令人屏息的電影級構圖！",
+        time: "約 2.5 ~ 3 小時（建議清晨 08:30 前或傍晚造訪避開人車）",
+        ticket: "夏季旺季開車需提前預約停車證；租木船約 €30~€50/半小時",
+        gear: "保暖層、相機偏光鏡、抓地運動鞋",
+        mapQuery: "Lago di Braies, 39030 Braies, Autonomous Province of Bolzano - South Tyrol, Italy"
+      },
+      "tre-cime": {
+        id: "tre-cime",
+        title: "三稜鏡山 (三座巨石奇峰)",
+        enTitle: "Tre Cime di Lavaredo, Dolomites",
+        category: "多洛米蒂標誌 • 外星地表健行",
+        location: "義大利 科爾蒂納 (Cortina d'Ampezzo 附近)",
+        img: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1000&q=80",
+        history: "三稜鏡山是多洛米蒂最標誌性的地質奇觀，三座由純白雲石構成的高峰拔地而起，最高的大峰達 2,999 公尺。第一次世界大戰期間，這裡是義大利王國與奧匈帝國血戰的前線高山防線，如今步道旁依然保存著一戰士兵開鑿的戰壕洞穴與碉堡遺跡。",
+        value: "彷彿置身於外星球的震撼地貌！自 Rifugio Auronzo 出發的經典環狀健行步道坡度極為平緩，老少咸宜。沿途巨石嶙峋、視野磅礴開闊，途中有山屋可享用熱可可與蘋果派。黃昏時分，夕陽會將白色岩壁染成傳說中的橘紅金光 (Enrosadira)！",
+        time: "約 3.5 ~ 4.5 小時（輕鬆步道健行）",
+        ticket: "全景收費景觀公路每車約 €30 (含山頂停車)",
+        gear: "健行登山鞋、防風保暖外套、登山杖（可選）、防曬油",
+        mapQuery: "Tre Cime di Lavaredo, 32041 Auronzo di Cadore, Province of Belluno, Italy"
+      },
+      "passo-pordoi": {
+        id: "passo-pordoi",
+        title: "波多伊山口與最美景觀公路",
+        enTitle: "Passo Pordoi & Dolomites Panorama Road",
+        category: "極致髮夾彎 • 阿爾卑斯自駕",
+        location: "義大利 多洛米蒂 (Canazei / Livinallongo)",
+        img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80",
+        history: "海拔 2,239 公尺的 Passo Pordoi 是多洛米蒂著名的景觀公路最高點，連接威尼斯省與特倫托省，歷史上是著名的環義自行車賽 (Giro d'Italia) 的經典考驗爬坡賽段，被無數車手與自駕旅行者奉為阿爾卑斯山的公路聖地。",
+        value: "自駕愛好者的終極天堂！連續數十個工程精妙的髮夾彎道穿行在巨大的白色白雲石石峰之間，每一道轉彎都是一幅全新壯麗畫面。抵達山口後，可搭乘高空纜車僅需 4 分鐘直登 2,950m 的薩索波多伊 (Sass Pordoi)『多洛米蒂露台』，俯瞰月球般壯闊的石海！",
+        time: "約 2 小時（自駕加景觀停留）",
+        ticket: "公路免費；纜車登頂約 €24",
+        gear: "自駕切勿猛踩煞車，善用引擎低速檔降速",
+        mapQuery: "Passo Pordoi, Canazei, Italy"
+      },
+      "val-gardena": {
+        id: "val-gardena",
+        title: "加爾代納山谷 (童話木屋之鄉)",
+        enTitle: "Val Gardena, Dolomites",
+        category: "阿爾卑斯木屋 • 拉汀傳統文化",
+        location: "義大利 奧爾蒂塞伊 (Ortisei)",
+        img: "https://images.unsplash.com/photo-1502791451862-7bd8c1df43a7?auto=format&fit=crop&w=1000&q=80",
+        history: "加爾代納山谷保留了阿爾卑斯山區極為罕見的原生拉汀文化 (Ladin)，居民至今操古老的拉汀語。自 17 世紀起，這裡的居民在漫長寒冬中發展出精美絕倫的木雕工藝，木製玩具與宗教雕像遠銷全歐洲，山谷建築全由木質尖頂阿爾卑斯木屋 (Chalet) 構成。",
+        value: "多洛米蒂西側無可替代的度假明珠！山谷小鎮 Ortisei 街道如童話般乾淨純樸，鮮花開滿木屋陽台。此處是通往刀背山 (Seceda) 與休斯高原的門戶，小鎮餐館充滿南提洛爾風情，品嚐香脆南提洛爾火腿 Speck 與白葡萄酒最是愜意。",
+        time: "約半日漫步或連住 2 晚大本營",
+        ticket: "小鎮漫步免費",
+        gear: "防風外套、慢跑步鞋",
+        mapQuery: "Ortisei, Val Gardena, Italy"
+      },
+      "seceda": {
+        id: "seceda",
+        title: "刀背山 Seceda (上帝的王座)",
+        enTitle: "Seceda 2500m, Val Gardena",
+        category: "大自然奇蹟 • 綠地與巨刃斷崖",
+        location: "義大利 奧爾蒂塞伊 (Ortisei 纜車上)",
+        img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1000&q=80",
+        history: "Seceda 標高 2,519 公尺，是多洛米蒂地質造山運動的極致奇蹟。數千萬年前非洲板塊撞擊歐洲板塊，強大的推擠力將海底古老珊瑚礁地層向上劇烈抬升，隨後被冰川削切成一側是斜緩綠意草坡、另一側是直墜千米的巨大鋸齒狀白雲岩刀刃峭壁。",
+        value: "全多洛米蒂最震撼人心的世紀大景！從 Ortisei 小鎮乘坐現代化纜車兩段直達 2,500 公尺山頂，走出纜車站瞬間，壯麗無邊的斜切巨刃岩峰撲面而來。山頂有廣袤的綠色草坡步道，牛鈴叮噹，山屋露天座提供現烤阿爾卑斯香腸與冰涼啤酒，躺在躺椅上看雲霧流轉，享受最難忘的零負擔放空日！",
+        time: "約 3 ~ 4 小時（山頂漫步與午餐）",
+        ticket: "Ortisei - Furnes - Seceda 來回纜車約 €39.5",
+        gear: "高山紫外線強烈需防曬、必帶防風保暖外套",
+        mapQuery: "Seceda, 39046 Ortisei, South Tyrol, Italy"
+      },
+      "duomo": {
+        id: "duomo",
+        title: "米蘭大教堂 (世界哥德式巔峰)",
+        enTitle: "Duomo di Milano & Rooftop",
+        category: "世界級大教堂 • 屋頂漫步",
+        location: "義大利 米蘭 (Milano)",
+        img: "https://images.unsplash.com/photo-1513581166391-887a96ddeafd?auto=format&fit=crop&w=1000&q=80",
+        history: "米蘭大教堂是世界第三大天主教堂，自 1386 年奠基動工，歷經近 600 年直到 1965 年最後一扇青銅門安裝完成。全建築使用珍貴的坎多利亞白色微粉紅大理石打造，擁有 135 座尖塔與 3,400 尊精緻雕像，拿破崙更曾於 1805 年在此加冕為義大利國王。",
+        value: "必買門票搭電梯登頂！在尖塔森林與精雕細琢的大理石飛扶壁之間穿行漫步，近距離仰望頂端高達 108 公尺、覆滿黃金的『金色聖母像 (Madonnina)』，天晴時更可從屋頂向北遠眺連綿白雪的阿爾卑斯山脈，氣勢無比雄偉。",
+        time: "約 2 ~ 3 小時（教堂內部加登頂）",
+        ticket: "登頂電梯+大教堂通票約 €22~€26，強烈建議提早一個月上網預約時段",
+        gear: "教堂嚴格服裝規定：不可露肩、裙褲長度需過膝",
+        mapQuery: "Duomo di Milano, Piazza del Duomo, Milan, Italy"
+      },
+      "galleria": {
+        id: "galleria",
+        title: "艾曼紐二世迴廊 (米蘭的客廳)",
+        enTitle: "Galleria Vittorio Emanuele II, Milano",
+        category: "百年購物迴廊 • 幸運公牛馬賽克",
+        location: "義大利 米蘭 (Milano)",
+        img: "https://images.unsplash.com/photo-1548685913-fe6678babe8d?auto=format&fit=crop&w=1000&q=80",
+        history: "建於 1865 至 1877 年間，以義大利統一後首位國王維托里奧·埃馬努埃萊二世命名。這座四層高的雙十字拱廊採用了當時最先進的鑄鐵與穹頂彩繪玻璃工程技術，被譽為現代購物中心 (Shopping Mall) 的始祖與『米蘭的客廳』。",
+        value: "新文藝復興風格的極致奢華殿堂！地面由華麗馬賽克大理石鋪設，中央八角穹頂下有代表義大利四大王國的標誌。傳說用右腳跟踩在『杜林公牛』的生殖器馬賽克圖騰上，順時針連續旋轉三圈，就能帶來一生好運！兩側匯聚 Prada 創始總店、Louis Vuitton 與百年甜點老店 Marchesi 1824。",
+        time: "約 1 ~ 1.5 小時",
+        ticket: "免費漫步參觀",
+        gear: "適合拍照的優雅服飾",
+        mapQuery: "Galleria Vittorio Emanuele II, Milan, Italy"
+      },
+      "starbucks-roastery": {
+        id: "starbucks-roastery",
+        title: "星巴克臻選米蘭烘焙工坊 (全球最奢華門市)",
+        enTitle: "Starbucks Reserve Roastery Milano",
+        category: "傳奇咖啡宮殿 • 工業美學",
+        location: "義大利 米蘭 (Piazza Cordusio)",
+        img: "https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80",
+        history: "1983 年星巴克創辦人霍華·舒茲 (Howard Schultz) 造訪米蘭街頭咖啡館，深受義大利濃縮咖啡文化啟發而開創現代星巴克。2018 年星巴克重返米蘭，耗資數千萬歐元包下前身為百年米蘭郵政總局的宏偉宮殿，打造為星巴克向義大利咖啡傳奇致敬的頂級神殿。",
+        value: "這不是普通的星巴克，而是一座運轉中的華麗咖啡博物館！內部鋪設整塊托斯卡納大理石地面，中央矗立著巨大的青銅旋轉烘豆機，伴隨豆香飄溢。二樓有 Arriviamo 特調雞尾酒吧，一樓更有現場窯烤麵包名店 Princi，來杯氮氣冷萃或義式濃縮 Affogato 享受極致奢華。",
+        time: "約 1 ~ 1.5 小時",
+        ticket: "免費入內，餐飲消費自理",
+        gear: "輕鬆打扮",
+        mapQuery: "Starbucks Reserve Roastery, Piazza Cordusio, Milan, Italy"
+      },
+      "cinque-terre": {
+        id: "cinque-terre",
+        title: "五漁村一日順遊 (利古里亞懸崖彩屋)",
+        enTitle: "Cinque Terre National Park",
+        category: "世遺海岸懸崖 • 彩色積木小鎮",
+        location: "義大利 利古里亞海濱 (Cinque Terre)",
+        img: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1000&q=80",
+        history: "由蒙特羅索 (Monterosso)、韋爾納扎 (Vernazza)、科爾尼利亞 (Corniglia)、馬納羅拉 (Manarola) 與里奧馬焦雷 (Riomaggiore) 五座中世紀漁村組成。千年來當地漁夫在崎嶇陡峭的臨海懸崖上手工開鑿層層石坎梯田，種植葡萄、檸檬與橄欖樹，形成獨特的人與自然和諧景觀。",
+        value: "米蘭出發當日火車即可往返（約 2.5 小時單程）！如彩色樂高積木般的房舍層層堆疊懸掛在蔚藍大海峭壁之上。在村莊間搭乘頻繁的區間火車跳島穿梭，手拿一桶現炸熱騰騰的大西洋綜合海鮮（小卷、鳳尾魚），配一杯清涼白葡萄酒，享受濃烈的義大利地中海夏日風情。",
+        time: "全日（約 8 ~ 10 小時米蘭火車往返）",
+        ticket: "五漁村火車一日卡 (Cinque Terre Card) 約 €18~€22",
+        gear: "防滑便鞋、防曬用品、遮陽帽",
+        mapQuery: "Manarola, Cinque Terre, Italy"
+      }
+    };
+
+    // Master 14 Days Itinerary Model
+    const tripData = {
+      stages: [
+        { id: 1, name: "第一階段：北義水都與夏日湖畔", days: [1, 2, 3, 4] },
+        { id: 2, name: "第二階段：斯洛維尼亞地底與古堡", days: [5, 6] },
+        { id: 3, name: "第三階段：多洛米蒂阿爾卑斯雙基地", days: [7, 8, 9, 10] },
+        { id: 4, name: "第四階段：米蘭都會慢活與大採買", days: [11, 12, 13, 14] }
+      ],
+      days: [
+        {
+          day: 1,
+          date: "8/08 (日)",
+          stageId: 1,
+          theme: "台灣啟程 ➔ 抵達米蘭 ➔ 悠閒運河區開胃酒晚餐",
+          route: "台北 TPE ➔ 杜拜轉機 ➔ 米蘭 MXP 機場取車 ➔ Navigli 運河區",
+          stay: "米蘭市郊 / 機場周邊質感飯店 (附車位方便)",
+          lunch: "阿聯酋機上精緻美饌",
+          dinner: "Navigli 運河水岸 Aperitivo 開胃酒晚餐",
+          highlights: "順利抵達北義大門、機場輕鬆自駕取車、達文西水道運河漫步",
+          spots: ["navigli"],
+          items: [
+            { id: "d1-1", time: "14:10", title: "抵達米蘭馬爾彭薩機場 (MXP T1)", tag: "國際航班", type: "transport", desc: "阿聯酋航空班機準時降落，通關提領行李，至機場航廈租車中心辦理取車手續，熟悉右駕與導航。" },
+            { id: "d1-2", time: "16:00", title: "驅車前往飯店 Check-in & 洗漱稍憩", tag: "飯店入住", type: "hotel", desc: "入住米蘭市郊交通便利飯店，卸下長途飛行行李，換上透氣舒適的夏日休閒服飾。" },
+            { id: "d1-3", time: "18:30", title: "Navigli 運河區：體驗道地開胃酒時光 (Aperitivo)", tag: "歷史運河", type: "spot", spotId: "navigli", desc: "漫步達文西參與設計的古老運河畔，點一杯 Spritz 開胃酒搭配豐盛義大利火腿起司點心，享受黃昏夕陽水岸夜色，輕鬆調整時差。" }
+          ]
+        },
+        {
+          day: 2,
+          date: "8/09 (一)",
+          theme: "奔向加達湖：錫爾苗內水上古堡 ➔ 湖濱手作巨型冰淇淋",
+          stageId: 1,
+          route: "米蘭 ➔ 加達湖 Sirmione (車程約 1.5h) ➔ 湖畔度假",
+          stay: "加達湖畔 錫爾苗內 (Sirmione) 度假飯店",
+          lunch: "加達湖畔景觀餐館新鮮湖魚料理",
+          dinner: "Sirmione 老城義式炭烤披薩與生火腿",
+          highlights: "十三世紀水中護城河城堡、阿爾卑斯湖畔夕陽、全義大利最大手工 Gelato",
+          spots: ["sirmione"],
+          items: [
+            { id: "d2-1", time: "09:30", title: "悠閒出發：駛向義大利最大湖泊加達湖 (Lake Garda)", tag: "景觀自駕", type: "transport", desc: "沿 A4 高速公路東行，穿越倫巴底平原，約 1.5 小時即可抵達阿爾卑斯山腳下的度假仙境錫爾苗內。" },
+            { id: "d2-2", time: "11:30", title: "漫步錫爾苗內 (Sirmione) 水上城堡", tag: "湖泊古堡", type: "spot", spotId: "sirmione", desc: "穿過斯卡利格城堡 (Castelo Scaligero) 雄偉的湖水吊橋，探索宛如浮在水面的中世紀防禦要塞與古羅馬遺跡。" },
+            { id: "d2-3", time: "14:30", title: "大啖手作巨型義式冰淇淋 (Gelato) & 湖濱散步", tag: "傳統甜點", type: "food", desc: "在老城品嚐疊成山丘般的開心果與檸檬冰淇淋，沿著綠意盎然的湖邊步道散步吹風，亦可租乘快艇從湖面繞島遊覽。" },
+            { id: "d2-4", time: "18:00", title: "飯店享受湖景陽台夕陽與湖邊晚餐", tag: "夏日湖畔", type: "hotel", desc: "入住加達湖畔度假飯店，晚餐在微風中品嚐當地特產白葡萄酒 (Lugana) 與現烤湖泊鱒魚。" }
+          ]
+        },
+        {
+          day: 3,
+          date: "8/10 (二)",
+          theme: "晨光湖畔漫活 ➔ 開車前往威尼斯 ➔ 傍晚火車進島看大運河夜景",
+          stageId: 1,
+          route: "Sirmione ➔ 威尼斯島外 Mestre (車程約 1.5h) ➔ 傍晚火車進主島",
+          stay: "威尼斯島外 梅斯特雷 (Mestre) 附停車飯店 (連住 2 晚)",
+          lunch: "加達湖畔悠閒輕食義大利麵",
+          dinner: "威尼斯聖馬可區小酒館 Cicchetti 小吃饗宴",
+          highlights: "住島外省去大運河拖大行李之苦、火車10分鐘直達本島、大運河黃昏至夜景",
+          spots: ["venice-night"],
+          items: [
+            { id: "d3-1", time: "09:00", title: "加達湖晨光散步 & 悠閒早餐", tag: "湖畔晨光", type: "hotel", desc: "享受沒有一日遊人潮的寧靜早晨，晨泳或在露天座位喝杯香濃卡布奇諾。" },
+            { id: "d3-2", time: "11:30", title: "啟程驅車前往威尼斯島外 Mestre", tag: "高速公路", type: "transport", desc: "約 1.5 小時抵達 Mestre 飯店辦理入住，將車輛停在飯店專屬停車場，免除威尼斯本島高昂停車費與石橋搬運行李的極度折磨。" },
+            { id: "d3-3", time: "17:00", title: "搭乘 10 分鐘火車直達威尼斯主島 (Santa Lucia)", tag: "火車進島", type: "transport", desc: "走出車站就是寬闊的威尼斯大運河！搭乘 1 號水上巴士沿著蜿蜒的大運河緩緩滑行。" },
+            { id: "d3-4", time: "18:30", title: "威尼斯大運河與聖馬可廣場夜色巡禮", tag: "璀璨夜景", type: "spot", spotId: "venice-night", desc: "在黃昏金光與夜色中穿過聖馬可廣場，看路燈點亮歷史宮殿，在露天酒吧聆聽現場樂隊演奏，沉醉在水都最迷人的夜景中。" }
+          ]
+        },
+        {
+          day: 4,
+          date: "8/11 (三)",
+          theme: "威尼斯繽紛海島：彩色島童話打卡 ➔ 里亞托橋探險 ➔ 經典墨魚麵",
+          stageId: 1,
+          route: "Mestre ➔ 水上巴士 ➔ 彩色島 (Burano) ➔ 威尼斯本島里亞托橋 ➔ Mestre",
+          stay: "威尼斯島外 梅斯特雷 (Mestre) 附停車飯店 (續住第 2 晚)",
+          lunch: "彩色島海鮮燉飯或炸海鮮",
+          dinner: "威尼斯本島道地濃郁黑墨魚汁義大利麵 (Spaghetti al Nero di Seppia)",
+          highlights: "彩虹糖果色水巷童話拍照、大運河最古老里亞托石橋俯瞰、地道墨魚麵",
+          spots: ["burano", "rialto"],
+          items: [
+            { id: "d4-1", time: "09:00", title: "搭乘水上巴士前往彩色島 (Burano)", tag: "水上航行", type: "transport", desc: "搭乘 12 號水上巴士穿越藍綠色的威尼斯瀉湖，約 40 分鐘即可抵達宛如童話世界的布拉諾島。" },
+            { id: "d4-2", time: "10:00", title: "漫步布拉諾彩色島：極致彩虹房屋打卡拍照", tag: "童話海島", type: "spot", spotId: "burano", desc: "穿梭在明豔飽滿的紅橙黃綠藍小巷與拱橋之間，每一座橋、每一道水渠都是絕美取景點，順道參觀百年蕾絲工坊。" },
+            { id: "d4-3", time: "13:30", title: "返回主島：里亞托橋 (Ponte di Rialto) 登高俯瞰", tag: "大運河地標", type: "spot", spotId: "rialto", desc: "站在威尼斯最古老的單拱石橋上，俯瞰穿梭不息的貢多拉與大運河兩側雄偉宮殿，逛橋旁繁華的手工皮件與面具小店。" },
+            { id: "d4-4", time: "15:30", title: "深入威尼斯迷宮後巷 & 品嚐傳統墨魚麵", tag: "巷弄美饌", type: "food", desc: "避開觀光主道，鑽進幽靜水巷小橋，晚餐品嚐吸滿大海鮮甜精華的黑色墨魚汁義大利麵與威尼斯炸海鮮拼盤。" },
+            { id: "d4-5", time: "20:00", title: "搭火車返回 Mestre 飯店，舒眠安歇", tag: "返回飯店", type: "hotel", desc: "10 分鐘火車輕鬆回到島外飯店，免搬行李免受累，準備明日跨國前往斯洛維尼亞！" }
+          ]
+        },
+        {
+          day: 5,
+          date: "8/12 (四)",
+          theme: "跨越國境前進斯國：波斯托伊納地底雙軌小火車 ➔ 峭壁奇幻洞穴城堡",
+          stageId: 2,
+          route: "威尼斯 Mestre ➔ 斯洛維尼亞邊境 (買 e-Vignette) ➔ 波斯托伊納溶洞 ➔ 盧比安納 (約 2.5h)",
+          stay: "斯洛維尼亞首都 盧比安納 (Ljubljana) 核心飯店 (連住 2 晚)",
+          lunch: "溶洞景觀餐廳斯洛維尼亞傳統烤香腸 (Kranjska Klobasa)",
+          dinner: "盧比安納老城傳統斯國燉肉料理與自釀啤酒",
+          highlights: "世界第二大鐘乳石溶洞、搭乘唯一的敞篷地底火車、世界最大洞穴懸崖城堡",
+          spots: ["postojna", "predjama"],
+          items: [
+            { id: "d5-1", time: "08:30", title: "啟程跨越義斯國境：線上購買 e-Vignette 電子通行證", tag: "跨國自駕", type: "transport", desc: "沿 A4 高速公路向東行駛，入境斯洛維尼亞前上網登記購買 e-Vignette（週票約 €16），享受全自動無收費站暢行。" },
+            { id: "d5-2", time: "11:30", title: "深入波斯托伊納溶洞 (Postojna Cave)：搭乘地底觀光小火車", tag: "世界級奇觀", type: "notice", spotId: "postojna", desc: "搭乘黃色雙軌敞篷火車深入地心 3.7 公里！穿梭在五彩壯麗的巨型石筍石柱間，親眼觀看神奇的『人魚 (Proteus)』。（洞內 8~10°C 務必備厚外套！）" },
+            { id: "d5-3", time: "14:30", title: "探訪普里賈瑪懸崖城堡 (Predjama Castle)", tag: "魔幻堡壘", type: "spot", spotId: "predjama", desc: "驅車 15 分鐘來到這座直接鑲嵌在 123 公尺高垂直峭壁洞穴中的奇幻城堡，探索傳奇俠盜男爵的秘密地下通道。" },
+            { id: "d5-4", time: "17:30", title: "抵達綠色之都盧比安納 Check-in & 晚餐", tag: "首都漫步", type: "hotel", desc: "進駐首都飯店，步行至市區老城區，在夕陽下的青石街道上品嚐道地斯洛維尼亞料理。" }
+          ]
+        },
+        {
+          day: 6,
+          date: "8/13 (五)",
+          theme: "斯國首都慢活：盧比安納城堡實境密室解謎 ➔ 河畔下午茶 ➔ 街頭塗鴉區",
+          stageId: 2,
+          route: "盧比安納市區全日：全景纜車 ➔ 城堡解謎 ➔ 三重橋與河畔下午茶 ➔ Metelkova",
+          stay: "斯洛維尼亞首都 盧比安納 (Ljubljana) 核心飯店 (續住第 2 晚)",
+          lunch: "老城區河畔市集露天熱烤肉捲 (Čevapi) 或輕食",
+          dinner: "Slovenska Hiša 河畔景觀餐廳精緻斯國地方菜",
+          highlights: "真實城堡內動腦破關 Castle Escape、河畔大啖 Cacao 冰淇淋與肉桂捲、前衛藝術區",
+          spots: ["ljubljana-castle", "ljubljana-river"],
+          items: [
+            { id: "d6-1", time: "09:30", title: "搭乘透明全景纜車登盧比安納城堡 (Ljubljana Castle)", tag: "古堡登高", type: "spot", spotId: "ljubljana-castle", desc: "登上高踞山丘的 900 年古堡鐘塔，360 度鳥瞰首都紅瓦街景與阿爾卑斯雪山天際線。" },
+            { id: "d6-2", time: "10:30", title: "體驗 Castle Escape 實境密室解謎破關！", tag: "親子解謎", type: "spot", spotId: "ljubljana-castle", desc: "全家人在真實的古老石造城堡與牢房中尋找隱藏線索、解開五道機關，寓教於樂的大冒險！" },
+            { id: "d6-3", time: "13:30", title: "老城漫步：三重橋、飛龍橋與中央市集", tag: "世界文化遺產", type: "spot", spotId: "ljubljana-river", desc: "漫步建築大師普雷契尼克規劃的世遺街區，造訪威風凜凜的飛龍橋合影拍照。" },
+            { id: "d6-4", time: "15:00", title: "盧比安納河畔愜意露天下午茶 (Cacao / 肉桂捲)", tag: "甜點名店", type: "food", desc: "坐在綠蔭垂柳河畔，在名店 Cacao 享用極品手工冰淇淋與溫熱的斯國傳統肉桂蘋果捲，度過最放鬆的午後時光。" },
+            { id: "d6-5", time: "17:00", title: "探訪 Metelkova Mesto 前衛塗鴉藝術自治區", tag: "街頭藝術", type: "spot", spotId: "ljubljana-river", desc: "前身為軍營的建築如今覆滿天馬行空的巨型雕塑與塗鴉壁畫，感受歐洲多元包容的現代文化。" }
+          ]
+        },
+        {
+          day: 7,
+          date: "8/14 六",
+          theme: "上帝的後花園：翡翠布萊德湖划 SUP ➔ 駛入多洛米蒂東側核心山城",
+          stageId: 3,
+          route: "盧比安納 ➔ 布萊德湖 (Lake Bled 約 45min) ➔ 跨國入境義大利 ➔ 多洛米蒂 Cortina (約 2h)",
+          stay: "多洛米蒂東側門戶 科爾蒂納 (Cortina d'Ampezzo) 木屋飯店 (連住 2 晚)",
+          lunch: "布萊德湖畔正宗百年香草奶油蛋糕 (Kremna rezina) & 輕食",
+          dinner: "Cortina 阿爾卑斯山地風情烤牛排與松露義大利麵",
+          highlights: "布萊德湖心島許願鐘、划 SUP 站立槳、初見多洛米蒂白雲石巨峰震撼",
+          spots: ["lake-bled"],
+          items: [
+            { id: "d7-1", time: "09:00", title: "前往如詩如畫的「翡翠之眼」布萊德湖 (Lake Bled)", tag: "冰川名湖", type: "spot", spotId: "lake-bled", desc: "抵達這座被阿爾卑斯群山環抱的夢幻湖泊，湖水清澈碧綠，湖心島與中世紀懸崖古堡宛如童話插畫。" },
+            { id: "d7-2", time: "10:30", title: "布萊德湖水上運動：划 SUP 站立槳或搭 Pletna 搖櫓船登島", tag: "水上活動", type: "spot", spotId: "lake-bled", desc: "在如鏡湖面上划槳前行，登上湖心島拉響古老教堂的『許願鐘』祈求好運。" },
+            { id: "d7-3", time: "13:00", title: "品嚐布萊德正宗百年香草奶油蛋糕 (Bled Cream Cake)", tag: "國寶甜點", type: "food", desc: "酥脆千層金黃派皮夾著滑順的雲朵卡士達與鮮奶油，入口即化的幸福滋味！" },
+            { id: "d7-4", time: "14:30", title: "跨國自駕進入義大利北部：多洛米蒂山脈 (Dolomites)", tag: "阿爾卑斯自駕", type: "transport", desc: "沿著風景秀麗的高山公路橫跨邊界，眼前的山形逐漸轉變為拔地而起的垂直灰白巨岩壁！" },
+            { id: "d7-5", time: "17:00", title: "進駐東側核心度假山城 Cortina d'Ampezzo", tag: "山城入住", type: "hotel", desc: "入住冬奧主辦地、素有『多洛米蒂之后』美名的奢華阿爾卑斯小鎮，享受山林清涼微風。" }
+          ]
+        },
+        {
+          day: 8,
+          date: "8/15 (日)",
+          theme: "多洛米蒂東側仙境：布萊埃斯湖划復古木船 ➔ 三稜鏡山輕鬆健行",
+          stageId: 3,
+          route: "Cortina ➔ Lago di Braies (約 50min) ➔ Tre Cime di Lavaredo (約 45min) ➔ Cortina",
+          stay: "多洛米蒂東側門戶 科爾蒂納 (Cortina d'Ampezzo) 木屋飯店 (續住第 2 晚)",
+          lunch: "三稜鏡山 Rifugio Auronzo 高山木屋熱騰騰燉牛肉搭 Polenta 玉米糕",
+          dinner: "Cortina 鎮上精緻提洛爾 (Tyrol) 風味料理",
+          highlights: "清晨在蒂芙尼藍 Braies 湖划木船、三稜鏡山外星地貌輕鬆步道健行、Enrosadira 夕陽金光",
+          spots: ["lago-di-braies", "tre-cime"],
+          items: [
+            { id: "d8-1", time: "08:00", title: "清晨探訪夢幻仙境：布萊埃斯湖 (Lago di Braies)", tag: "世界自然遺產", type: "spot", spotId: "lago-di-braies", desc: "避開日間人車潮，欣賞蒂芙尼藍色湖水倒映 Croda del Becco 巨岩雪壁的純淨畫面。" },
+            { id: "d8-2", time: "09:00", title: "在百年木造船屋租復古手划木船漫遊湖心", tag: "浪漫手划船", type: "spot", spotId: "lago-di-braies", desc: "手搖木槳在碧綠波心蕩漾，從水上仰望雄偉山壁，捕捉如同電影場景般的極致照片。" },
+            { id: "d8-3", time: "12:00", title: "挑戰多洛米蒂最標誌性的地標：三稜鏡山 (Tre Cime di Lavaredo)", tag: "奇峰健行", type: "spot", spotId: "tre-cime", desc: "自 Rifugio Auronzo 出發，走在坡度極平緩的經典環山健行步道上，仰望三座直插雲霄的獨立灰白巨石柱。" },
+            { id: "d8-4", time: "15:00", title: "高山木屋午茶 & 遠眺壯闊一戰歷史要塞岩壁", tag: "阿爾卑斯山屋", type: "food", desc: "在陽光灑落的高山木屋露台喝杯熱咖啡與蘋果派，欣賞大自然的磅礴雕刻。" },
+            { id: "d8-5", time: "18:00", title: "返回 Cortina 散步逛街與享用豐盛晚餐", tag: "山城夜色", type: "hotel", desc: "在 Cortina 步行街漫步，挑選多洛米蒂天然草本精油與阿爾卑斯手工藝品。" }
+          ]
+        },
+        {
+          day: 9,
+          date: "8/16 (一)",
+          theme: "多洛米蒂景觀自駕：橫跨 Pass Pordoi 髮夾彎公路 ➔ 入住 Val Gardena 童話木屋",
+          stageId: 3,
+          route: "Cortina ➔ Passo Falzarego ➔ Passo Pordoi (髮夾彎) ➔ Val Gardena (Ortisei) (約 2.5h)",
+          stay: "多洛米蒂西側 加爾代納山谷 (Val Gardena - Ortisei) 阿爾卑斯度假木屋 (連住 2 晚)",
+          lunch: "Passo Pordoi 山頂木屋景觀餐廳阿爾卑斯烤起司盤與手工麵糰餃 (Canederli)",
+          dinner: "Val Gardena 在地拉汀傳統特色餐館",
+          highlights: "全歐最美景觀公路自駕、連續髮夾彎極致山景、多洛米蒂露台俯瞰月球地表",
+          spots: ["passo-pordoi", "val-gardena"],
+          items: [
+            { id: "d9-1", time: "09:30", title: "景觀自駕之旅啟程：翻越法爾扎雷戈山口 (Passo Falzarego)", tag: "全景公路", type: "transport", desc: "沿著多洛米蒂景觀大動脈西行，群山層巒疊嶂，隨處設有觀景停車點供旅客停車拍照。" },
+            { id: "d9-2", time: "11:30", title: "挑戰多洛米蒂之王：波多伊山口 (Passo Pordoi 2,239m)", tag: "自駕聖地", type: "spot", spotId: "passo-pordoi", desc: "行駛在一連串令人熱血沸騰的精湛髮夾彎中，抵達山口遠眺雄偉峰巒，搭乘 4 分鐘纜車直上 2,950m 薩索波多伊俯瞰大地！" },
+            { id: "d9-3", time: "14:30", title: "駛入加爾代納山谷 (Val Gardena)，入住童話小鎮 Ortisei", tag: "童話木屋", type: "spot", spotId: "val-gardena", desc: "抵達西側核心大本營，沿途盡是盛開著鮮花的斜頂木造小屋與青翠的高山草甸。" },
+            { id: "d9-4", time: "16:30", title: "Ortisei 小鎮悠閒漫步：探索拉汀木雕工藝與露天咖啡", tag: "慢活步調", type: "hotel", desc: "漫步在全無車輛干擾的小鎮步行街，參觀名聞遐邇的木雕藝術品，享受被多洛米蒂巨岩溫柔擁抱的清涼午後。" }
+          ]
+        },
+        {
+          day: 10,
+          date: "8/17 (二)",
+          theme: "零拉車放空日：纜車直達 2500m 刀背山 Seceda ➔ 山頂草坡阿爾卑斯木屋午餐",
+          stageId: 3,
+          route: "Ortisei 步行至纜車站 ➔ Seceda (刀背山) ➔ 山頂草甸輕健行 ➔ 返回小鎮放鬆",
+          stay: "多洛米蒂西側 加爾代納山谷 (Val Gardena - Ortisei) 阿爾卑斯度假木屋 (續住第 2 晚)",
+          lunch: "Seceda 山頂景觀木屋 Baita Sofie 現烤阿爾卑斯豬肋排與冰涼啤酒",
+          dinner: "Ortisei 小鎮手工披薩與南提洛爾風乾火腿 (Speck)",
+          highlights: "搭高空纜車站上刀背山、上帝王座巨刃峭壁、山頂野花草坡散步躺椅放空",
+          spots: ["seceda"],
+          items: [
+            { id: "d10-1", time: "09:00", title: "免開車放空！自飯店步行前往 Ortisei - Seceda 高空纜車站", tag: "零拉車", type: "transport", desc: "今天徹底不碰方向盤！從鎮中心搭乘現代化纜車兩段直上 2,519 公尺的刀背山巔。" },
+            { id: "d10-2", time: "09:45", title: "登上 Seceda 刀背山頂：仰望「上帝的王座」巨刃峭壁奇蹟", tag: "大自然奇蹟", type: "spot", spotId: "seceda", desc: "走出纜車站瞬間被眼前無與倫比的巨大斜切岩刃震懾！一邊是柔美的綠色草坡，另一邊是千仞斷崖，宛如大地被天神劈開的王座。" },
+            { id: "d10-3", time: "11:30", title: "在 Seceda 全景草甸步道輕鬆漫步，牛鈴叮噹", tag: "草坡散步", type: "spot", spotId: "seceda", desc: "坡度平緩開闊，山風拂面，野花遍地。隨處都是震撼的 360 度阿爾卑斯大景。" },
+            { id: "d10-4", time: "13:00", title: "高山木屋 Baita Sofie 享用露天美饌，躺在躺椅上看雲霧", tag: "阿爾卑斯饗宴", type: "food", desc: "在全景露天看台享用多汁的烤肉排、提洛爾餃與當地葡萄酒，度過這趟旅程中最幸福悠閒的午後。" },
+            { id: "d10-5", time: "16:30", title: "搭纜車下山回到 Ortisei，享受飯店泳池或水療放鬆", tag: "渡假享受", type: "hotel", desc: "回到小木屋飯店，泡熱水澡或在陽台品嚐水果甜點，為多洛米蒂仙境篇章畫下完美句點。" }
+          ]
+        },
+        {
+          day: 11,
+          date: "8/18 (三)",
+          theme: "多洛米蒂 ➔ 回到米蘭 ➔【正式提前還車】避開 ZTL 罰單開啟地鐵慢遊",
+          stageId: 4,
+          route: "Val Gardena ➔ 沿 A22 / A4 高速公路開回米蘭 (約 3.5h) ➔ 下午車行還車 ➔ 米蘭地鐵慢遊",
+          stay: "米蘭市中心地鐵沿線星級飯店 (連住 3 晚)",
+          lunch: "高速公路高級休息站 Autogrill 現烤帕尼尼三明治與義式濃縮",
+          dinner: "米蘭市中心傳統小館：米蘭炸小牛排 (Cotoletta) 配金色藏紅花燉飯",
+          highlights: "提前還車徹底避開市區高昂停車費與 ZTL 罰單、進駐米蘭市中心、地鐵輕鬆慢活",
+          items: [
+            { id: "d11-1", time: "09:00", title: "告別阿爾卑斯山谷，驅車返回米蘭", tag: "南下回程", type: "transport", desc: "沿著高速公路南下穿越維羅納平原，中午抵達米蘭市區，沿途享受最後的義大利公路風光。" },
+            { id: "d11-2", time: "13:30", title: "前往車行完成【正式還車】手續！", tag: "明智決策", type: "notice", desc: "【重要策略】直接在租車據點把車還掉！徹底省下後續 3 天昂貴租車費、市區飯店 €30~€50/天的驚人停車費，更 100% 避開可怕的 ZTL 禁行區罰單！" },
+            { id: "d11-3", time: "15:00", title: "搭乘米蘭地鐵前往市中心飯店 Check-in", tag: "地鐵慢活", type: "hotel", desc: "連住 3 晚市中心飯店！不用再整理行李換飯店，走路即可進地鐵站，輕鬆探索大都會。" },
+            { id: "d11-4", time: "18:30", title: "晚餐品嚐正統米蘭雙寶：金黃藏紅花燉飯 & 炸小牛排", tag: "米蘭名菜", type: "food", desc: "品嚐米蘭最富盛名的傳統名菜——用牛骨髓與藏紅花熬煮的金色燉飯 (Risotto alla Milanese)，搭配酥脆多汁的大塊帶骨炸小牛排。" }
+          ]
+        },
+        {
+          day: 12,
+          date: "8/19 (四)",
+          theme: "米蘭都會深度：大教堂登頂漫步 ➔ 艾曼紐二世迴廊 ➔ 全球最奢華星巴克",
+          stageId: 4,
+          route: "全日搭地鐵：米蘭大教堂 (含屋頂登頂) ➔ 艾曼紐二世迴廊 ➔ 科爾杜西奧廣場星巴克",
+          stay: "米蘭市中心星級飯店 (續住第 2 晚)",
+          lunch: "艾曼紐二世迴廊旁 Luini 著名現炸起司番茄油炸三明治 (Panzerotti)",
+          dinner: "布雷拉藝術區 (Brera) 氣氛餐酒館炭烤牛排與松露料理",
+          highlights: "在六百年哥德式大教堂大理石尖塔間登頂漫步、踩公牛馬賽克轉三圈、殿堂級星巴克",
+          spots: ["duomo", "galleria", "starbucks-roastery"],
+          items: [
+            { id: "d12-1", time: "09:00", title: "搭地鐵抵達主教堂廣場 (Piazza del Duomo)", tag: "市中心地標", type: "spot", spotId: "duomo", desc: "從地鐵階梯走上來瞬間，被眼前聳立著 135 座大理石尖塔的純白巨型哥德式大教堂深深震撼！" },
+            { id: "d12-2", time: "09:30", title: "米蘭大教堂 (Duomo) 買票搭電梯登頂屋頂漫步", tag: "屋頂漫步", type: "spot", spotId: "duomo", desc: "走在大理石傾斜屋頂上，近距離觸摸數百尊精雕細琢的白色雕像與金色聖母像，遠眺米蘭全景。" },
+            { id: "d12-3", time: "12:00", title: "造訪「米蘭的客廳」：艾曼紐二世迴廊 (Galleria)", tag: "百年拱廊", type: "spot", spotId: "galleria", desc: "漫步在十九世紀先進鑄鐵與彩繪玻璃穹頂下，在中央八角穹頂下找到公牛馬賽克，用腳跟踩轉三圈祈求好運！" },
+            { id: "d12-4", time: "14:30", title: "朝聖星巴克臻選米蘭烘焙工坊 (Starbucks Reserve Roastery)", tag: "咖啡殿堂", type: "spot", spotId: "starbucks-roastery", desc: "走入前百年郵政總局改造的極致奢華宮殿，觀看巨大青銅旋轉烘豆機運作，品嚐特調冷萃咖啡與 Princi 精緻烘焙甜點。" },
+            { id: "d12-5", time: "17:00", title: "漫步文青浪漫的布雷拉藝術區 (Brera) 巷弄", tag: "文藝街區", type: "hotel", desc: "穿梭在鵝卵石小徑、獨立設計師選品店與畫廊之間，享受米蘭最優雅的生活情調。" }
+          ]
+        },
+        {
+          day: 13,
+          date: "8/20 (五)",
+          theme: "米蘭時尚精品大採買 或 火車當日往返利古里亞海【五漁村】一日遊",
+          stageId: 4,
+          route: "選項 A：米蘭文藝復興百貨採買 / 選項 B：中央車站火車當日往返五漁村 (Cinque Terre)",
+          stay: "米蘭市中心星級飯店 (最後 1 晚)",
+          lunch: "五漁村懸崖炸海鮮甜筒 或 米蘭文藝復興百貨頂樓景觀餐廳",
+          dinner: "米蘭旅程告別慶功晚宴：義大利生火腿佐莫札瑞拉起司與精緻海鮮",
+          highlights: "彈性二選一！可悠閒逛精品名店退稅掃貨，亦可衝一趟明信片般的五彩懸崖漁村",
+          spots: ["cinque-terre"],
+          items: [
+            { id: "d13-1", time: "09:00", title: "【方案 A：都會時尚日】黃金四角街區與文藝復興百貨採買", tag: "精品採買", type: "spot", desc: "漫步蒙特拿破崙大街 (Via Montenapoleone)，挑選義大利頂級皮件、服飾、摩卡壺、松露醬與香氛，填寫 Tax Free 退稅單。" },
+            { id: "d13-2", time: "07:30", title: "【方案 B：海濱跳島日】搭火車往返利古里亞海「五漁村」(Cinque Terre)", tag: "世遺海岸", type: "spot", spotId: "cinque-terre", desc: "從米蘭中央車站搭火車（約 2.5 小時）直達五漁村，欣賞懸崖峭壁上如彩色積木般的繽紛屋舍，大啖炸海鮮甜筒！" },
+            { id: "d13-3", time: "18:00", title: "回到米蘭市區打包行李，確認退稅單據完備", tag: "整理準備", type: "hotel", desc: "將購入的美酒、橄欖油妥善放入托運行李箱，護照與退稅單據集中保管。" }
+          ]
+        },
+        {
+          day: 14,
+          date: "8/21 (六)",
+          theme: "米蘭最後巡禮 ➔ 機場辦理退稅手續 ➔ 登機啟航返台",
+          stageId: 4,
+          route: "米蘭市區 ➔ 馬爾彭薩機場 (MXP T1) ➔ 辦理退稅手續 ➔ 22:15 阿聯酋班機起飛 (機上過夜)",
+          stay: "阿聯酋巨無霸客機機上過夜飛航",
+          lunch: "米蘭市區悠閒午茶義大利麵",
+          dinner: "米蘭機場貴賓室 / 阿聯酋機上套餐",
+          highlights: "滿載戰利品與仙境回憶、馬爾彭薩機場退稅、平安啟航跨週末返抵台灣",
+          items: [
+            { id: "d14-1", time: "11:00", title: "飯店退房寄放行李，進行米蘭最後巡禮", tag: "最後巡禮", type: "hotel", desc: "悠閒享用最後一杯正統義式卡布奇諾與酥熱牛角麵包，補購義大利頂級 Amedei 巧克力與檸檬甜酒。" },
+            { id: "d14-2", time: "17:30", title: "搭乘機場快線 (Malpensa Express) 前往馬爾彭薩機場 T1", tag: "機場交通", type: "transport", desc: "自米蘭中央車站或卡多爾納站搭乘直達火車，約 50 分鐘準時抵達機場航廈，絕無塞車風險。" },
+            { id: "d14-3", time: "18:30", title: "辦理海關退稅 (Customs Tax Refund) & 託運行李", tag: "海關退稅", type: "notice", desc: "持退稅單與護照在海關窗口蓋章辦理信用卡退稅，辦理登機手續並托運行李。" },
+            { id: "d14-4", time: "22:15", title: "搭乘阿聯酋航空 EK206 啟程返台！", tag: "平安返航", type: "transport", desc: "班機離陸，帶著滿滿的手機相片、大西洋與阿爾卑斯的壯麗記憶飛越杜拜，於 8/22 (日) 晚間平安返抵台灣溫暖的家！" }
+          ]
+        }
+      ],
+      foods: [
+        {
+          name: "米蘭燉飯配炸小牛排 (Risotto & Cotoletta alla Milanese)",
+          loc: "義大利 米蘭 (Milano)",
+          tag: "米蘭國寶大菜",
+          desc: "用珍貴藏紅花熬煮出耀眼金黃色的米蘭燉飯，米芯微硬富有嚼勁，帶有迷人香氣；搭配拍得大如盤子、外皮金黃酥脆的炸帶骨小牛排，肉質軟嫩多汁。",
+          tip: "傳統正宗做法使用牛骨髓慢炒燉煮，搭配紅酒是米蘭夜晚最頂級的享受。"
+        },
+        {
+          name: "Sirmione 手工巨型冰淇淋塔 (Gelato Artigianale)",
+          loc: "義大利 加達湖 錫爾苗內 (Sirmione)",
+          tag: "湖畔甜蜜誘惑",
+          desc: "加達湖畔老城最令人震撼的景象！每家冰淇淋店門口都堆滿數十座高聳如山峰般的手工冰淇淋，綿密絲滑，口味從濃郁西西里開心果、野生黑櫻桃到新鮮檸檬應有盡有。",
+          tip: "一人點兩球就非常大份量，邊吃邊在湖濱步道散步極為享受。"
+        },
+        {
+          name: "威尼斯道地濃黑墨魚汁麵 (Spaghetti al Nero di Seppia)",
+          loc: "義大利 威尼斯 (Venezia)",
+          tag: "水都靈魂名餚",
+          desc: "選用當日威尼斯瀉湖現撈的新鮮烏賊，將天然墨魚囊加入白葡萄酒、大蒜與番茄慢火慢炒出烏黑發亮的醬汁，拌入彈牙義大利麵，整盤黑得發亮但鮮美甜美無比！",
+          tip: "吃完嘴唇與牙齒會染成黑色，大家互看拍照特別歡樂，餐後擦拭即可。"
+        },
+        {
+          name: "斯洛維尼亞傳統肉桂蘋果捲 (Jabolčni Zavitek / Gibanica)",
+          loc: "斯洛維尼亞 盧比安納 (Ljubljana)",
+          tag: "中歐傳統甜點",
+          desc: "薄如紙片的千層手工麵皮，包裹著滿滿炒得香甜軟嫩的斯國蘋果丁、葡萄乾與撲鼻肉桂粉，烤得金黃酥脆後撒上糖粉，配一球香草冰淇淋或無糖拿鐵絕配。",
+          tip: "在盧比安納河畔名店 Slovenska Hiša 或 Cacao 露天座品嚐最道地。"
+        },
+        {
+          name: "布萊德百年正宗香草奶油蛋糕 (Bled Cream Cake / Kremna Rezina)",
+          loc: "斯洛維尼亞 布萊德湖畔 (Bled)",
+          tag: "仙境國寶蛋糕",
+          desc: "自 1953 年由布萊德湖畔 Park 飯店主廚首創，精確為 7x7 公分的黃金比例！頂層與底層是酥脆如威化的金黃千層派皮，中間是厚厚一層入口即化的濃郁蛋黃香草卡士達與蓬鬆鮮奶油。",
+          tip: "配一杯黑咖啡或伯爵茶，坐在湖邊眺望湖心小島，是最極致的午後享受。"
+        },
+        {
+          name: "南提洛爾燻火腿配高山起司 (Speck & Alpine Cheese)",
+          loc: "義大利 多洛米蒂山脈 (Val Gardena / Cortina)",
+          tag: "阿爾卑斯木屋美食",
+          desc: "用杜松子等阿爾卑斯香草醃製、並用山毛櫸木慢火冷燻後風乾數月的南提洛爾特產火腿 (Speck)，切成極薄透光片，搭配阿爾卑斯高山生乳熟成起司與脆黑麥麵包，鹹香濃郁。",
+          tip: "在 Seceda 山頂高山木屋健行休息時，點一份火腿起司木拼盤佐當地拉格啤酒，無比暢快！"
+        }
+      ],
+      packList: [
+        { id: "pk-1", text: "防風保暖連帽外套或薄羽絨（波斯托伊納溶洞恆溫8°C、Seceda刀背山頂2500m必備）" },
+        { id: "pk-2", text: "舒適防滑抓地健行鞋（應對三稜鏡山環狀步道、Seceda草坡與歐洲古城石板路）" },
+        { id: "pk-3", text: "泳衣、水上活動防曬衣與小毛巾（加達湖戲水、布萊德湖划SUP站立槳）" },
+        { id: "pk-4", text: "抗 UV 偏光太陽眼鏡與高係數防曬乳（阿爾卑斯山區紫外線極強）" },
+        { id: "pk-5", text: "國際駕照正本 + 台灣駕照正本（米蘭機場取車時租車公司必查）" },
+        { id: "pk-6", text: "歐規雙圓孔轉接頭（Type C / F）與多孔延長線/大容量行動電源" },
+        { id: "pk-7", text: "支援海外高回饋信用卡與 Apple/Google Pay + €150 小額歐元現金" },
+        { id: "pk-8", text: "出發前上網申辦斯洛維尼亞電子通行證 (e-Vignette) 並保存確認單" },
+        { id: "pk-9", text: "米蘭大教堂服裝準備：不可露肩、褲裙需過膝（備薄披肩或長褲備用）" },
+        { id: "pk-10", text: "常備個人藥品、胃藥（品嚐大份量燉飯小牛排）、止痛藥與暈車藥（山路髮夾彎）" },
+        { id: "pk-11", text: "折疊大購物袋或行李箱擴充袋（裝米蘭精品、摩卡壺、松露醬與伴手禮）" },
+        { id: "pk-12", text: "手機下載 Google 離線地圖（多洛米蒂部分高山隘口收訊較微弱）" }
+      ]
+    };
+
+    // State Variables
+    let currentDevice = 'desktop';
+    let activeDay = 1;
+    let isAllDaysMode = false;
+    let currentModalSpotId = null;
+    let checkedItems = JSON.parse(localStorage.getItem('italy_checked_items') || '{}');
+    let checkedSpots = JSON.parse(localStorage.getItem('italy_checked_spots') || '{}');
+    let checkedPack = JSON.parse(localStorage.getItem('italy_checked_pack') || '{}');
+
+    // App Initialization
+    function init() {
+      renderDayPills();
+      renderItinerary();
+      renderFoods();
+      renderPackList();
+      calculateBudget();
+      updateAllCounts();
+
+      // Keyboard Esc to close modal
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeAttractionModal();
+      });
+    }
+
+    // ====================================================
+    // DEVICE SIMULATOR SWITCHING
+    // ====================================================
+    function setDeviceMode(mode) {
+      currentDevice = mode;
+      
+      document.querySelectorAll('.device-btn').forEach(btn => {
+        btn.classList.remove('bg-gradient-to-r', 'from-sky-500', 'to-blue-600', 'text-white', 'shadow-sm');
+        btn.classList.add('text-slate-300');
+      });
+
+      const wrapper = document.getElementById('device-wrapper');
+      const statusBar = document.getElementById('sim-status-bar');
+      const tabletBar = document.getElementById('sim-tablet-bar');
+      const homeBar = document.getElementById('sim-home-bar');
+      const label = document.getElementById('currentDeviceLabel');
+      const dimLabel = document.getElementById('currentDimensionLabel');
+
+      wrapper.classList.remove('frame-desktop', 'frame-mobile-portrait', 'frame-tablet-16-9');
+
+      if (mode === 'desktop') {
+        document.getElementById('btn-desktop').classList.add('bg-gradient-to-r', 'from-sky-500', 'to-blue-600', 'text-white', 'shadow-sm');
+        document.getElementById('btn-desktop').classList.remove('text-slate-300');
+        wrapper.classList.add('frame-desktop');
+        statusBar.classList.add('hidden');
+        tabletBar.classList.add('hidden');
+        homeBar.classList.add('hidden');
+        label.textContent = '💻 電腦版（寬螢幕 100%）';
+        dimLabel.textContent = '100% 滿版自適應';
+      } else if (mode === 'mobile') {
+        document.getElementById('btn-mobile').classList.add('bg-gradient-to-r', 'from-sky-500', 'to-blue-600', 'text-white', 'shadow-sm');
+        document.getElementById('btn-mobile').classList.remove('text-slate-300');
+        wrapper.classList.add('frame-mobile-portrait');
+        statusBar.classList.remove('hidden');
+        tabletBar.classList.add('hidden');
+        homeBar.classList.remove('hidden');
+        label.textContent = '📲 手機直式（iPhone 規格）';
+        dimLabel.textContent = '390 × 844 px 直式畫面';
+      } else if (mode === 'tablet-16-9') {
+        document.getElementById('btn-tablet').classList.add('bg-gradient-to-r', 'from-sky-500', 'to-blue-600', 'text-white', 'shadow-sm');
+        document.getElementById('btn-tablet').classList.remove('text-slate-300');
+        wrapper.classList.add('frame-tablet-16-9');
+        statusBar.classList.add('hidden');
+        tabletBar.classList.remove('hidden');
+        homeBar.classList.add('hidden');
+        label.textContent = '📱 平板 16:9（橫向寬螢幕模式）';
+        dimLabel.textContent = '1024 × 576 px (16:9 規格)';
+      }
+    }
+
+    // ====================================================
+    // TAB NAVIGATION
+    // ====================================================
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('nav-tab-active'));
+
+      const target = document.getElementById(`view-${tabId}`);
+      const btn = document.getElementById(`nav-${tabId}`);
+      if (target) target.classList.remove('hidden');
+      if (btn) btn.classList.add('nav-tab-active');
+
+      const quickNav = document.getElementById('quickDayNav');
+      if (quickNav) {
+        if (tabId === 'itinerary') quickNav.classList.remove('hidden');
+        else quickNav.classList.add('hidden');
+      }
+      window.scrollTo({ top: 160, behavior: 'smooth' });
+    }
+
+    // ====================================================
+    // RENDER ITINERARY
+    // ====================================================
+    function renderDayPills() {
+      const container = document.getElementById('dayPillsContainer');
+      container.innerHTML = tripData.days.map(d => {
+        const isActive = (d.day === activeDay && !isAllDaysMode);
+        let borderClass = "border-sky-300 text-sky-800";
+        if (d.stageId === 2) borderClass = "border-emerald-300 text-emerald-800";
+        if (d.stageId === 3) borderClass = "border-amber-300 text-amber-800";
+        if (d.stageId === 4) borderClass = "border-purple-300 text-purple-800";
+
+        let activeStyle = "bg-sky-600 text-white font-black shadow-md border-transparent scale-105";
+        let idleStyle = `bg-sky-50/60 hover:bg-sky-100 text-slate-700 ${borderClass}`;
+
+        return `
+          <button onclick="selectDay(${d.day})" id="pill-${d.day}"
+            class="px-2.5 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition border ${isActive ? activeStyle : idleStyle}">
+            Day ${d.day}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function selectDay(dayNum) {
+      activeDay = dayNum;
+      isAllDaysMode = false;
+      document.getElementById('btnToggleAllDays').textContent = '📑 展開全 14 天';
+      renderDayPills();
+      renderItinerary();
+      const ind = document.getElementById('quickDayIndicator');
+      if (ind) ind.textContent = `Day ${dayNum} / 14`;
+    }
+
+    function toggleAllDays() {
+      isAllDaysMode = !isAllDaysMode;
+      const btn = document.getElementById('btnToggleAllDays');
+      if (isAllDaysMode) {
+        btn.textContent = '📌 收合為單日';
+        document.querySelectorAll('#dayPillsContainer button').forEach(b => b.classList.remove('bg-sky-600', 'text-white', 'scale-105'));
+      } else {
+        btn.textContent = '📑 展開全 14 天';
+        renderDayPills();
+      }
+      renderItinerary();
+    }
+
+    function navigateDay(delta) {
+      let next = activeDay + delta;
+      if (next < 1) next = 1;
+      if (next > 14) next = 14;
+      selectDay(next);
+    }
+
+    function filterStage(stageId) {
+      switchTab('itinerary');
+      const stage = tripData.stages.find(s => s.id === stageId);
+      if (stage) selectDay(stage.days[0]);
+    }
+
+    function renderDayCard(day) {
+      let stageTheme = {
+        badge: "bg-sky-100 text-sky-800 border-sky-300",
+        border: "border-sky-200",
+        headerBg: "bg-gradient-to-r from-sky-50 via-white to-sky-50/40",
+        icon: "🏎️",
+        label: "第一階段 • 北義浪漫水都湖畔"
+      };
+
+      if (day.stageId === 2) {
+        stageTheme = {
+          badge: "bg-emerald-100 text-emerald-800 border-emerald-300",
+          border: "border-emerald-200",
+          headerBg: "bg-gradient-to-r from-emerald-50 via-white to-emerald-50/40",
+          icon: "🐉",
+          label: "第二階段 • 斯洛維尼亞地底與古堡"
+        };
+      } else if (day.stageId === 3) {
+        stageTheme = {
+          badge: "bg-amber-100 text-amber-800 border-amber-300",
+          border: "border-amber-200",
+          headerBg: "bg-gradient-to-r from-amber-50 via-white to-amber-50/40",
+          icon: "🏔️",
+          label: "第三階段 • 多洛米蒂阿爾卑斯雙基地"
+        };
+      } else if (day.stageId === 4) {
+        stageTheme = {
+          badge: "bg-purple-100 text-purple-800 border-purple-300",
+          border: "border-purple-200",
+          headerBg: "bg-gradient-to-r from-purple-50 via-white to-purple-50/40",
+          icon: "🛍️",
+          label: "第四階段 • 米蘭都會慢活與大採買"
+        };
+      }
+
+      const itemsHtml = day.items.map(item => {
+        const isChecked = !!checkedItems[item.id];
+        const hasSpotDetail = !!(item.spotId && ATTRACTIONS[item.spotId]);
+
+        let typeBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-blue-100 text-blue-800 font-bold">📍 ' + item.tag + '</span>';
+        if (item.type === 'food') typeBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-bold">🍴 ' + item.tag + '</span>';
+        if (item.type === 'transport') typeBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-200 text-slate-800 font-bold">🚗 ' + item.tag + '</span>';
+        if (item.type === 'hotel') typeBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-800 font-bold">🏨 ' + item.tag + '</span>';
+        if (item.type === 'notice') typeBadge = '<span class="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 font-bold">⚠️ ' + item.tag + '</span>';
+
+        return `
+          <div class="p-3.5 rounded-2xl border border-slate-200/90 bg-white hover:border-sky-300 transition-all flex flex-col sm:flex-row sm:items-start justify-between gap-3 ${isChecked ? 'opacity-50 bg-slate-50' : 'shadow-xs'}">
+            
+            <div class="flex items-start gap-2.5 flex-1 min-w-0">
+              <input type="checkbox" onchange="toggleItemDone('${item.id}')" ${isChecked ? 'checked' : ''} 
+                class="mt-1 w-4 h-4 rounded text-sky-600 border-slate-300 focus:ring-sky-500 cursor-pointer flex-shrink-0" />
+              
+              <div class="flex-1 min-w-0">
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded-md bg-slate-800 text-white">${item.time}</span>
+                  <h4 class="text-xs sm:text-sm font-bold text-slate-900 ${isChecked ? 'line-through text-slate-400' : ''}">${item.title}</h4>
+                  ${typeBadge}
+                </div>
+                <p class="text-xs text-slate-600 mt-1.5 leading-relaxed ${isChecked ? 'text-slate-400' : ''}">${item.desc}</p>
+              </div>
+            </div>
+
+            <!-- Detail Action Button (Feature Requested) -->
+            ${hasSpotDetail ? `
+              <button onclick="openAttractionModal('${item.spotId}')" 
+                class="sm:flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-extrabold bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white shadow-xs transition transform active:scale-95">
+                <span>🏛️ 查看景點深度導覽</span>
+                <span class="text-[10px] bg-white/20 px-1.5 py-0.2 rounded font-mono">地圖+照片</span>
+              </button>
+            ` : ''}
+
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="bg-white rounded-3xl border-2 ${stageTheme.border} shadow-sm overflow-hidden mb-4">
+          <!-- Day Header -->
+          <div class="p-4 sm:p-5 border-b border-slate-100 ${stageTheme.headerBg}">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-0.5 rounded-full text-xs font-black border ${stageTheme.badge}">
+                    Day ${day.day} • ${day.date}
+                  </span>
+                  <span class="text-xs text-slate-500 font-bold">${stageTheme.icon} ${stageTheme.label}</span>
+                </div>
+                <h3 class="text-base sm:text-lg font-black text-slate-900 mt-1.5">${day.theme}</h3>
+                <div class="text-xs text-slate-600 mt-1 font-semibold flex items-center gap-1">
+                  <span class="text-sky-600 font-bold">🧭 路線：</span>
+                  <span>${day.route}</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap sm:flex-col items-start sm:items-end gap-1 text-xs">
+                <span class="font-bold px-2.5 py-1 bg-white border border-slate-200 rounded-xl text-slate-800 shadow-2xs">
+                  🏨 住宿：${day.stay}
+                </span>
+                <span class="font-bold text-amber-800 px-2.5 py-0.5 bg-amber-50 border border-amber-200 rounded-lg text-[11px]">
+                  ✨ 亮點：${day.highlights}
+                </span>
+              </div>
+            </div>
+
+            <!-- Meals Line -->
+            <div class="mt-3.5 pt-2.5 border-t border-slate-200/60 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+              <div class="flex items-center gap-1.5 text-slate-700">
+                <span class="font-extrabold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-md text-[10px]">中餐</span>
+                <span class="truncate font-medium">${day.lunch}</span>
+              </div>
+              <div class="flex items-center gap-1.5 text-slate-700">
+                <span class="font-extrabold text-indigo-800 bg-indigo-100 px-2 py-0.5 rounded-md text-[10px]">晚餐</span>
+                <span class="truncate font-medium">${day.dinner}</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Items Timeline -->
+          <div class="p-3.5 sm:p-5 space-y-2.5 bg-slate-50/50">
+            ${itemsHtml}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderItinerary() {
+      const container = document.getElementById('itineraryContainer');
+      if (isAllDaysMode) {
+        container.innerHTML = tripData.days.map(d => renderDayCard(d)).join('');
+      } else {
+        const d = tripData.days.find(x => x.day === activeDay);
+        if (d) container.innerHTML = renderDayCard(d);
+      }
+    }
+
+    function toggleItemDone(itemId) {
+      checkedItems[itemId] = !checkedItems[itemId];
+      localStorage.setItem('italy_checked_items', JSON.stringify(checkedItems));
+      renderItinerary();
+    }
+
+    // ====================================================
+    // ATTRACTION DETAIL MODAL LOGIC (CORE USER REQUIREMENT)
+    // ====================================================
+    function openAttractionModal(spotId) {
+      const spot = ATTRACTIONS[spotId];
+      if (!spot) return;
+
+      currentModalSpotId = spotId;
+
+      document.getElementById('modalSpotTitle').textContent = spot.title;
+      document.getElementById('modalSpotEnTitle').textContent = spot.enTitle;
+      document.getElementById('modalSpotCategory').textContent = spot.category;
+      document.getElementById('modalSpotLocation').textContent = spot.location;
+      document.getElementById('modalSpotHistory').textContent = spot.history;
+      document.getElementById('modalSpotValue').textContent = spot.value;
+      document.getElementById('modalSpotTime').textContent = spot.time;
+      document.getElementById('modalSpotTicket').textContent = spot.ticket;
+      document.getElementById('modalSpotGear').textContent = spot.gear;
+
+      // Image
+      const imgEl = document.getElementById('modalSpotImg');
+      imgEl.src = spot.img;
+      imgEl.onerror = () => {
+        imgEl.src = "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80";
+      };
+
+      // Google Maps Embed & Link
+      const query = encodeURIComponent(spot.mapQuery);
+      document.getElementById('modalSpotIframe').src = `https://maps.google.com/maps?q=${query}&t=&z=14&ie=UTF8&iwloc=&output=embed`;
+      document.getElementById('modalSpotGoogleLink').href = `https://www.google.com/maps/search/?api=1&query=${query}`;
+
+      updateModalCheckinButton();
+
+      const modal = document.getElementById('attractionModal');
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAttractionModal() {
+      const modal = document.getElementById('attractionModal');
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+      document.getElementById('modalSpotIframe').src = '';
+    }
+
+    function toggleSpotCheckin() {
+      if (!currentModalSpotId) return;
+      checkedSpots[currentModalSpotId] = !checkedSpots[currentModalSpotId];
+      localStorage.setItem('italy_checked_spots', JSON.stringify(checkedSpots));
+      updateModalCheckinButton();
+      updateAllCounts();
+    }
+
+    function updateModalCheckinButton() {
+      const isChecked = !!checkedSpots[currentModalSpotId];
+      const btn = document.getElementById('modalCheckinBtn');
+      if (isChecked) {
+        btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-slate-700 hover:bg-slate-800 text-white transition flex items-center gap-1.5 shadow-sm";
+        btn.innerHTML = "<span>✓ 已踩點 (點擊取消)</span>";
+      } else {
+        btn.className = "px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 hover:bg-emerald-700 text-white transition flex items-center gap-1.5 shadow-sm";
+        btn.innerHTML = "<span>＋ 標記為已踩點</span>";
+      }
+    }
+
+    // ====================================================
+    // RENDER FOODS
+    // ====================================================
+    function renderFoods() {
+      const container = document.getElementById('foodsGridContainer');
+      container.innerHTML = tripData.foods.map(f => {
+        return `
+          <div class="p-4 rounded-3xl border border-slate-200 bg-white hover:shadow-md transition flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-800">${f.tag}</span>
+                <span class="text-[11px] font-bold text-slate-500">📍 ${f.loc}</span>
+              </div>
+              <h3 class="text-sm font-extrabold text-slate-900 mt-2">${f.name}</h3>
+              <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">${f.desc}</p>
+            </div>
+            <div class="mt-3.5 pt-2 border-t border-slate-100 text-[11px] text-amber-900 bg-amber-50/60 p-2 rounded-xl font-bold">
+              💡 饕客品嚐心法：${f.tip}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ====================================================
+    // PACK LIST & BUDGET
+    // ====================================================
+    function renderPackList() {
+      const container = document.getElementById('packListContainer');
+      container.innerHTML = tripData.packList.map(item => {
+        const isDone = !!checkedPack[item.id];
+        return `
+          <label class="p-2.5 rounded-2xl border border-slate-200 hover:bg-slate-50 transition flex items-center gap-2.5 cursor-pointer ${isDone ? 'bg-slate-50 opacity-60' : 'bg-white shadow-2xs'}">
+            <input type="checkbox" onchange="togglePack('${item.id}')" ${isDone ? 'checked' : ''} 
+              class="w-4 h-4 rounded text-sky-600 border-slate-300 focus:ring-sky-500 cursor-pointer flex-shrink-0" />
+            <span class="text-xs ${isDone ? 'line-through text-slate-400 font-normal' : 'text-slate-800 font-bold'}">${item.text}</span>
+          </label>
+        `;
+      }).join('');
+      updateAllCounts();
+    }
+
+    function togglePack(id) {
+      checkedPack[id] = !checkedPack[id];
+      localStorage.setItem('italy_checked_pack', JSON.stringify(checkedPack));
+      renderPackList();
+    }
+
+    function calculateBudget() {
+      const flight = parseInt(document.getElementById('input-flight').value);
+      const stay = parseInt(document.getElementById('input-stay').value);
+      const transit = parseInt(document.getElementById('input-transit').value);
+      const ticket = parseInt(document.getElementById('input-ticket').value);
+      const food = parseInt(document.getElementById('input-food').value);
+
+      document.getElementById('label-flight').textContent = `NT$ ${flight.toLocaleString()} (€${Math.round(flight/35).toLocaleString()})`;
+      document.getElementById('label-stay').textContent = `NT$ ${stay.toLocaleString()} (€${Math.round(stay/35).toLocaleString()})`;
+      document.getElementById('label-transit').textContent = `NT$ ${transit.toLocaleString()} (€${Math.round(transit/35).toLocaleString()})`;
+      document.getElementById('label-ticket').textContent = `NT$ ${ticket.toLocaleString()} (€${Math.round(ticket/35).toLocaleString()})`;
+      document.getElementById('label-food').textContent = `NT$ ${food.toLocaleString()} (€${Math.round(food/35).toLocaleString()})`;
+
+      const total = flight + stay + transit + ticket + food;
+      const eurTotal = Math.round(total / 35);
+
+      document.getElementById('totalNTD').textContent = `NT$ ${total.toLocaleString()}`;
+      document.getElementById('totalEUR').textContent = `約 €${eurTotal.toLocaleString()} 歐元 (每人預估)`;
+    }
+
+    // ====================================================
+    // SEARCH & RESET
+    // ====================================================
+    function handleSearch(query) {
+      const q = query.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (q.length > 0) {
+        clearBtn.classList.remove('hidden');
+        switchTab('itinerary');
+        
+        let matches = [];
+        tripData.days.forEach(d => {
+          const matchTheme = d.theme.toLowerCase().includes(q);
+          const matchRoute = d.route.toLowerCase().includes(q);
+          const matchItems = d.items.filter(i => 
+            i.title.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q) || i.tag.toLowerCase().includes(q)
+          );
+
+          if (matchTheme || matchRoute || matchItems.length > 0) {
+            matches.push({
+              ...d,
+              items: matchItems.length > 0 ? matchItems : d.items
+            });
+          }
+        });
+
+        const container = document.getElementById('itineraryContainer');
+        if (matches.length === 0) {
+          container.innerHTML = `
+            <div class="bg-white p-8 text-center rounded-3xl border border-slate-200">
+              <div class="text-3xl mb-1">🔍</div>
+              <h3 class="text-sm font-extrabold text-slate-800">未找到符合「${query}」的行程</h3>
+              <p class="text-xs text-slate-500 mt-1">請嘗試搜尋「溶洞」、「刀背山」、「冰淇淋」、「大教堂」、「運河」等關鍵字</p>
+            </div>
+          `;
+        } else {
+          container.innerHTML = matches.map(d => renderDayCard(d)).join('');
+        }
+      } else {
+        clearBtn.classList.add('hidden');
+        renderItinerary();
+      }
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      input.value = '';
+      handleSearch('');
+    }
+
+    function updateAllCounts() {
+      const totalSpots = Object.keys(ATTRACTIONS).length;
+      const doneSpots = Object.values(checkedSpots).filter(Boolean).length;
+      document.getElementById('headerSpotsVisitedCount').textContent = `${doneSpots} / ${totalSpots} 景點踩點`;
+
+      const packTotal = tripData.packList.length;
+      const packDone = Object.values(checkedPack).filter(Boolean).length;
+      const packEl = document.getElementById('packProgress');
+      if (packEl) packEl.textContent = `${packDone} / ${packTotal} 完成`;
+    }
+
+    function resetTripProgress() {
+      if (confirm('確定要重置所有景點踩點與行李勾選進度嗎？')) {
+        checkedItems = {};
+        checkedSpots = {};
+        checkedPack = {};
+        localStorage.removeItem('italy_checked_items');
+        localStorage.removeItem('italy_checked_spots');
+        localStorage.removeItem('italy_checked_pack');
+        renderItinerary();
+        renderPackList();
+        updateAllCounts();
+        alert('已成功重置所有進度！');
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
